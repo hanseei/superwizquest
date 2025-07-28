@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b43fr5tpkqw0n"]
+
+[ext_resource type="Script" uid="uid://cb7eldu68mgcu" path="res://water.gd" id="1_7wcun"]
+[ext_resource type="Texture2D" uid="uid://no7hulj8o66w" path="res://grassMid.png" id="1_qi1wl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wcun"]
+size = Vector2(70, 70)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_7wcun")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7wcun")
+
+[node name="GrassMid" type="Sprite2D" parent="."]
+texture = ExtResource("1_qi1wl")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(0, -0.499998)
+scale = Vector2(3.5, 3.45)
