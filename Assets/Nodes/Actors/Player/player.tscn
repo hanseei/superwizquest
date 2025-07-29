@@ -37,4 +37,3 @@ sprite_frames = SubResource("SpriteFrames_dd465")
 animation = &"walk"
 
 [node name="Orb" type="Marker2D" parent="."]
-position = Vector2(66, 0)

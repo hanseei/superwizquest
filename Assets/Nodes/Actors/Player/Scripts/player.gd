@@ -104,6 +104,7 @@ func shoot_element():
 
 
 func _input(event):
+	
 	if event.is_action_pressed("space"):
 		shoot_element()
 
