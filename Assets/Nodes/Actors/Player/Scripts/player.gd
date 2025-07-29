@@ -9,9 +9,9 @@ const Gravity = 98
 
 var spawn_point := Vector2.ZERO
 
-const fire = preload("res://fire.tscn")
-const water = preload("res://water.tscn")
-const earth = preload("res://earth.tscn")
+const fire = preload("res://Assets/Nodes/Actors/Player/fire.tscn")
+const water = preload("res://Assets/Nodes/Actors/Player/water.tscn")
+const earth = preload("res://Assets/Nodes/Actors/Player/earth.tscn")
 
 var elements = ["fire", "water", "earth"]
 var current_element_index = 0
