@@ -6,14 +6,16 @@ const Gravity = 98
 @export var jump_velocity = -200
 @export var spawn_point_node: NodePath
 
+var wind_speed = 0
 
 var spawn_point := Vector2.ZERO
 
 const fire = preload("res://Assets/Nodes/Actors/Player/fire.tscn")
 const water = preload("res://Assets/Nodes/Actors/Player/water.tscn")
 const earth = preload("res://Assets/Nodes/Actors/Player/earth.tscn")
+const wind = preload("res://Assets/Nodes/Actors/Player/wind.tscn")
 
-var elements = ["fire", "water", "earth"]
+var elements = ["fire", "water", "earth", "wind"]
 var current_element_index = 0
 var current_element = "fire"
 
@@ -23,8 +25,7 @@ var facing_left = false
 func _ready():
 	if has_node(spawn_point_node):
 		spawn_point = get_node(spawn_point_node).global_position
-
-
+		
 
 func _physics_process(delta: float):
 	
@@ -32,7 +33,7 @@ func _physics_process(delta: float):
 		velocity.y += Gravity * delta
 	
 	var direction = Input.get_axis("move_left", "move_right")
-	velocity.x = direction * speed
+	velocity.x = direction * speed + wind_speed
 	
 	if direction != 0:
 		facing_left = direction < 0
@@ -41,6 +42,7 @@ func _physics_process(delta: float):
 		velocity.y = jump_velocity
 	
 	move_and_slide()
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shift"):
@@ -93,6 +95,27 @@ func summon_earth_block():
 		
 		active_earth = block
 
+func cast_wind():
+	
+	var direction := Vector2.LEFT if facing_left else Vector2.RIGHT
+	
+	var wind_instance = wind.instantiate()
+	get_tree().current_scene.add_child(wind_instance)
+	
+	wind_instance.connect("wind_updated", self._on_wind_updated)
+	
+	wind_instance.activate_wind()
+
+	print(speed)
+
+func _on_wind_updated(speed):
+	wind_speed = speed
+	
+	if speed == 0:
+		# Assume wind has finished — remove it
+		var wind_instance = get_node("WindController")
+		if wind_instance:
+			wind_instance.queue_free()
 
 
 func shoot_element():
@@ -100,6 +123,7 @@ func shoot_element():
 		"fire": shoot_single(fire)
 		"water": shoot_water_burst(water)
 		"earth": summon_earth_block()
+		"wind": cast_wind()
 
 
 
@@ -113,7 +137,3 @@ func respawn():
 	print("Respawning player...")
 	global_position = spawn_point  # or wherever you want to reset
 	velocity = Vector2.ZERO
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
