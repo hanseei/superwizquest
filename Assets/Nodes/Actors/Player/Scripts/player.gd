@@ -52,6 +52,7 @@ func shoot_single(scene: PackedScene):
 	var shot = scene.instantiate()
 	shot.global_position = $Orb.global_position
 	shot.velocity = Vector2.LEFT * shot.speed if facing_left else Vector2.RIGHT * shot.speed
+	shot.setAnimDirection(facing_left)
 	get_tree().current_scene.add_child(shot)
 
 func shoot_water_burst(scene: PackedScene):

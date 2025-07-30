@@ -11,3 +11,8 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_Area2D_body_entered(body):
 	queue_free()
+	
+#	A function called from player to determine which way the fireball sprite should face
+func setAnimDirection(facing_left: bool):
+	match facing_left:
+		false: $AnimatedSprite2D.flip_h = true

@@ -1,20 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://b43fr5tpkqw0n"]
 
 [ext_resource type="Script" uid="uid://bjs5epuods5p7" path="res://Assets/Nodes/Actors/Player/Scripts/water.gd" id="1_7wcun"]
-[ext_resource type="Texture2D" uid="uid://dvf3leyf8ljbh" path="res://Assets/Images/Tilesets/grassMid.png" id="1_qi1wl"]
+[ext_resource type="Texture2D" uid="uid://d03eysae1pgey" path="res://Assets/Images/Spritesheets/water_sprite.png" id="2_m6nuc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wcun"]
-size = Vector2(70, 70)
+size = Vector2(14, 14)
 
-[node name="Area2D" type="Area2D"]
+[node name="water" type="Area2D" groups=["waters"]]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_7wcun")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["waters"]]
+scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_7wcun")
 
 [node name="GrassMid" type="Sprite2D" parent="."]
-texture = ExtResource("1_qi1wl")
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_m6nuc")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(0, -0.499998)
-scale = Vector2(3.5, 3.45)
+position = Vector2(-3.8147e-07, -1.81794e-07)

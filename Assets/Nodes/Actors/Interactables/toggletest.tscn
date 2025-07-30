@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2sylo50eqnp0"]
+
+[ext_resource type="Texture2D" uid="uid://b13vmx4w62sur" path="res://Assets/Images/Spritesheets/testlight_spritesheet.png" id="1_6aswh"]
+[ext_resource type="Script" uid="uid://qa5gqe7rdif3" path="res://Assets/Nodes/Actors/Interactables/Scripts/toggletest.gd" id="1_ov7jl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ov7jl"]
+atlas = ExtResource("1_6aswh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7grol"]
+atlas = ExtResource("1_6aswh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wr32u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ov7jl")
+}],
+"loop": true,
+"name": &"activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7grol")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Toggletest" type="Node2D"]
+script = ExtResource("1_ov7jl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_wr32u")
+autoplay = "default"
