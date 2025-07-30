@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dia7x2akacw3y"]
+
+[ext_resource type="Script" uid="uid://b08nxe6vl7hfb" path="res://Assets/Nodes/Actors/Player/Scripts/wind.gd" id="1_3nk51"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_3nk51")
+
+[connection signal="wind_updated" from="." to="." method="_on_wind_updated"]
