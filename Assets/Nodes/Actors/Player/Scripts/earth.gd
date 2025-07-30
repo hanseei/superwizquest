@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var rise_height := 70
+@export var rise_height := 35
 @export var rise_speed := 200
 
 var start_position := Vector2.ZERO

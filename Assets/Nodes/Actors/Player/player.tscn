@@ -29,11 +29,13 @@ animations = [{
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 0)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_44cfe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_dd465")
 animation = &"walk"
 
 [node name="Orb" type="Marker2D" parent="."]
+gizmo_extents = 5.0

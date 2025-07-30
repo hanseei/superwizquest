@@ -10,8 +10,10 @@ size = Vector2(70, 70)
 script = ExtResource("1_qbwya")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_7wcun")
 
 [node name="GrassMid" type="Sprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_om26h")
