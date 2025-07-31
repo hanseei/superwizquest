@@ -136,8 +136,9 @@ shape = SubResource("RectangleShape2D_vwov1")
 position = Vector2(914, 571)
 scale = Vector2(2, 2)
 
-[node name="Toggletest" parent="." instance=ExtResource("5_57x3k")]
+[node name="Toggletest" parent="." node_paths=PackedStringArray("triggerObject") instance=ExtResource("5_57x3k")]
 texture_filter = 1
 position = Vector2(912, 502)
+triggerObject = NodePath("../Torch")
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

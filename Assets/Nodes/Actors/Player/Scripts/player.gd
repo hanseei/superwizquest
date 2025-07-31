@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-const Gravity = 400
+const Gravity = 2000
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
-@export var jump_velocity = -180
+@export var jump_velocity = -400
 @export var spawn_point_node: NodePath
 
 var wind_speed = 0
