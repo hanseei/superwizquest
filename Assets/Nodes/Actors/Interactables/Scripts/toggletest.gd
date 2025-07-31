@@ -3,17 +3,17 @@ extends Node2D
 
 enum LOGIC {AND, OR, NAND, NOR}
 
-
 @export var logic: LOGIC = 0
 @export var triggerObjectArray: Array[Area2D]
-var counter: int = 0
-var max: int = 0
-var lit: bool = false
+var counter: int = 0	# Current number of lit torches
+var max: int = 0	# Amount of torches checked
+var lit: bool = false	# Checks whether signal is good or bad
 
+# TODO: Potential for refactor with changing the order of match and for loop, or having one bound function that does the match instead
 func _ready():
 	max = triggerObjectArray.size()
 	if (triggerObjectArray.size() > 0):
-		match logic:
+		match logic:	
 			LOGIC.AND:
 				for triggerObject in triggerObjectArray:
 					triggerObject.lit.connect(_andFunc.bind(true))
@@ -26,12 +26,16 @@ func _ready():
 				for triggerObject in triggerObjectArray:
 					triggerObject.lit.connect(_nandFunc.bind(true))
 					triggerObject.doused.connect(_nandFunc.bind(false))
+				lit = true
+				_light()
 			LOGIC.NOR:
 				for triggerObject in triggerObjectArray:
 					triggerObject.lit.connect(_norFunc.bind(true))
 					triggerObject.doused.connect(_norFunc.bind(false))
+				lit = true
+				_light()
 
-# Simply ups the counter when a torch is lit, downs it when unlit, and toggles when counter is equal to max
+# Ups and downs the counter, toggles lit if all torches are lit
 func _andFunc(activated: bool):
 	if (activated):
 		counter += 1
@@ -44,7 +48,7 @@ func _andFunc(activated: bool):
 		lit = false
 	_light()
 
-	
+# Ups and downs the counter, toggles lit if at least one torch is lit
 func _orFunc(activated: bool):
 	if (activated):
 		counter += 1
@@ -56,6 +60,7 @@ func _orFunc(activated: bool):
 		lit = false
 	_light()
 	
+# Ups and downs the counter, toggles lit if not all torches are lit
 func _nandFunc(activated: bool):
 	if (activated):
 		counter += 1
@@ -67,6 +72,7 @@ func _nandFunc(activated: bool):
 		lit = false
 	_light()	
 	
+# Ups and downs the counter, toggles lit if no torches are lit
 func _norFunc(activated: bool):
 	if (activated):
 		counter += 1
