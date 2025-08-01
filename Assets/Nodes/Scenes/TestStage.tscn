@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://c7g3qysr2s8mq"]
+[gd_scene load_steps=11 format=4 uid="uid://c7g3qysr2s8mq"]
 
 [ext_resource type="Texture2D" uid="uid://t67xuw2rn3q2" path="res://Assets/Images/Tilesets/tileset_32x32(new).png" id="1_hj4v7"]
 [ext_resource type="PackedScene" uid="uid://clnon8w5k6rob" path="res://Assets/Nodes/Actors/Player/player.tscn" id="2_kuskl"]
 [ext_resource type="Script" uid="uid://c3bmiiwme5v7i" path="res://Assets/Nodes/Actors/Interactables/Scripts/killzone.gd" id="3_hjgtx"]
 [ext_resource type="PackedScene" uid="uid://cwbjkioh2y6bw" path="res://Assets/Nodes/Actors/Interactables/torch.tscn" id="4_vwov1"]
 [ext_resource type="PackedScene" uid="uid://c2sylo50eqnp0" path="res://Assets/Nodes/Actors/Interactables/toggletest.tscn" id="5_57x3k"]
+[ext_resource type="PackedScene" uid="uid://blc2megwvlwmr" path="res://Assets/Nodes/Actors/Interactables/bucket.tscn" id="6_l42a0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kuskl"]
 
@@ -216,5 +217,9 @@ offset_top = 273.0
 offset_right = 2940.0
 offset_bottom = 313.0
 text = "NOR"
+
+[node name="Bucket" parent="." instance=ExtResource("6_l42a0")]
+position = Vector2(731, 604)
+scale = Vector2(2, 2)
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

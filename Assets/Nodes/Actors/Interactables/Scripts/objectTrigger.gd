@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name ObjectTrigger
+
 enum LOGIC {AND, OR, NAND, NOR}
 
 @export var logic: LOGIC = 0

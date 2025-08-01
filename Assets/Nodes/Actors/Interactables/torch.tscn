@@ -46,8 +46,6 @@ collision_mask = 8
 script = ExtResource("1_3f0jf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 8
-visibility_layer = 8
 position = Vector2(-0.5, -6)
 shape = SubResource("RectangleShape2D_3f0jf")
 
@@ -56,4 +54,6 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_36g16")
 autoplay = "default"
 
+[connection signal="activated" from="." to="." method="lightTorch"]
 [connection signal="area_entered" from="." to="." method="area_entered"]
+[connection signal="deactivated" from="." to="." method="douseTorch"]
