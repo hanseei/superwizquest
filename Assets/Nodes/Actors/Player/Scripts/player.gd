@@ -21,6 +21,8 @@ var current_element = "fire"
 
 var active_earth: Node = null
 var facing_left = false
+var up_key = false
+var down_key = false
 
 func _ready():
 	if has_node(spawn_point_node):
@@ -44,11 +46,33 @@ func _physics_process(delta: float):
 	move_and_slide()
 	
 
+func _input(event):
+	
+	if event.is_action_pressed("space"):
+		shoot_element()
+		
+	if event.is_action_pressed("move_up"):
+		up_key = true
+		print("up pressed")
+	if event.is_action_released("move_up"):
+		up_key = false
+		print("up released")
+		
+	if event.is_action_pressed("move_down"):
+		down_key = true
+		print("down pressed")
+	if event.is_action_released("move_down"):
+		down_key = false
+		print("down released")
+		
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shift"):
 		current_element_index = (current_element_index + 1) % elements.size()
 		current_element = elements[current_element_index]
 		print("Switched to:", current_element)
+		
+
 
 func shoot_single(scene: PackedScene):
 	var shot = scene.instantiate()
@@ -99,16 +123,21 @@ func summon_earth_block():
 func cast_wind():
 	
 	var direction := Vector2.LEFT if facing_left else Vector2.RIGHT
+		
+	if up_key:
+		direction = Vector2.UP
+	if down_key:
+		direction = Vector2.DOWN
+	
+	print(direction)
 	
 	var wind_instance = wind.instantiate()
 	get_tree().current_scene.add_child(wind_instance)
 	
 	wind_instance.connect("wind_updated", self._on_wind_updated)
 	
-	wind_instance.activate_wind()
-
-	print(speed)
-
+	wind_instance.activate_wind(direction)
+	
 func _on_wind_updated(speed):
 	wind_speed = speed
 	
@@ -125,14 +154,6 @@ func shoot_element():
 		"water": shoot_water_burst(water)
 		"earth": summon_earth_block()
 		"wind": cast_wind()
-
-
-
-func _input(event):
-	
-	if event.is_action_pressed("space"):
-		shoot_element()
-
 
 func respawn():
 	print("Respawning player...")
