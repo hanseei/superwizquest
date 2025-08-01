@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
-const Gravity = 2000
+const Gravity = 4000
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
-@export var jump_velocity = -400
 @export var spawn_point_node: NodePath
 
+var jump_velocity = 0
 var wind_speed = 0
+var wind_active = false
+
 
 var spawn_point := Vector2.ZERO
 
@@ -31,17 +33,20 @@ func _ready():
 
 func _physics_process(delta: float):
 	
-	if not is_on_floor():
-		velocity.y += Gravity * delta
-	
 	var direction = Input.get_axis("move_left", "move_right")
 	velocity.x = direction * speed + wind_speed
 	
+	if !is_on_floor():
+		
+		velocity.y = 2* Gravity * delta
+
+	
+	if jump_velocity != 0:
+		velocity.y = jump_velocity * delta
+		
+	
 	if direction != 0:
 		facing_left = direction < 0
-	
-	if Input.is_action_just_pressed("move_up") and is_on_floor():
-		velocity.y = jump_velocity
 	
 	move_and_slide()
 	
@@ -129,17 +134,25 @@ func cast_wind():
 	if down_key:
 		direction = Vector2.DOWN
 	
-	print(direction)
+	if wind_active == false:
+		
+		wind_active = true
+		var wind_instance = wind.instantiate()
+		get_tree().current_scene.add_child(wind_instance)
+		
+		wind_instance.connect("wind_updated", self._on_wind_updated)
+		
+		wind_instance.activate_wind(direction)
+		
+		await get_tree().create_timer(5.0).timeout
+		
+		wind_active = false
 	
-	var wind_instance = wind.instantiate()
-	get_tree().current_scene.add_child(wind_instance)
-	
-	wind_instance.connect("wind_updated", self._on_wind_updated)
-	
-	wind_instance.activate_wind(direction)
-	
-func _on_wind_updated(speed):
+func _on_wind_updated(speed, up_speed):
 	wind_speed = speed
+	jump_velocity = up_speed
+	
+	print(velocity.y)
 	
 	if speed == 0:
 		# Assume wind has finished — remove it
