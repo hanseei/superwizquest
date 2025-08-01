@@ -115,6 +115,8 @@ func summon_earth_block():
 
 		# Offset forward based on facing direction
 		var offset := Vector2(100, 50)  # Adjust distance as needed
+		if down_key == true || up_key == true:
+			offset.x = 0
 		if facing_left:
 			offset.x *= -1
 
