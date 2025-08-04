@@ -108,24 +108,34 @@ func summon_earth_block():
 		if active_earth and is_instance_valid(active_earth):
 			active_earth.queue_free()
 			
-		var block = earth.instantiate()
+
 
 		# Start from the Orb position
 		var spawn_pos = $Orb.global_position
 
 		# Offset forward based on facing direction
-		var offset := Vector2(100, 50)  # Adjust distance as needed
+		var offset := Vector2(128, -64)  # Adjust distance as needed
 		if down_key == true || up_key == true:
 			offset.x = 0
 		if facing_left:
 			offset.x *= -1
-
+			
 		spawn_pos += offset
-		block.position = spawn_pos
 
-		get_tree().current_scene.add_child(block)
 		
-		active_earth = block
+		var ray_goal = spawn_pos + Vector2(0,128)
+		var space_state = get_world_2d().direct_space_state
+		var query = PhysicsRayQueryParameters2D.create(spawn_pos, ray_goal)
+		var result = space_state.intersect_ray(query)
+		
+		if (!result.is_empty()):
+			spawn_pos = result.get("position")
+			spawn_pos.x = spawn_pos.x - (int(spawn_pos.x) % 32) - 12
+			var block = earth.instantiate()
+			block.position = spawn_pos
+			get_tree().current_scene.add_child(block)
+			active_earth = block
+		
 
 func cast_wind():
 	
