@@ -5,6 +5,8 @@ const Gravity = 4000
 @export var speed = 400 # How fast the player will move (pixels/sec).
 @export var spawn_point_node: NodePath
 
+@export var worldTileOffset = 0
+
 var jump_velocity = 0
 var wind_speed = 0
 var wind_active = false
@@ -107,8 +109,6 @@ func summon_earth_block():
 		
 		if active_earth and is_instance_valid(active_earth):
 			active_earth.queue_free()
-			
-
 
 		# Start from the Orb position
 		var spawn_pos = $Orb.global_position
@@ -130,7 +130,7 @@ func summon_earth_block():
 		
 		if (!result.is_empty()):
 			spawn_pos = result.get("position")
-			spawn_pos.x = spawn_pos.x - (int(spawn_pos.x) % 32) - 12
+			spawn_pos.x = spawn_pos.x - (int(spawn_pos.x) % 32) - worldTileOffset
 			var block = earth.instantiate()
 			block.position = spawn_pos
 			get_tree().current_scene.add_child(block)

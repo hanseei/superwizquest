@@ -5,3 +5,4 @@ func _ready():
 
 func _on_bucket_activated():
 	$AnimatedSprite2D.animation = "fill"
+	
