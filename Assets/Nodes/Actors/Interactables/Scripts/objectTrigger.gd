@@ -11,6 +11,9 @@ var counter: int = 0 # Current number of lit torches
 var max: int = 0 # Amount of torches checked
 var lit: bool = false # Checks whether signal is good or bad
 
+signal activated
+signal deactivated
+
 # TODO: Potential for refactor with changing the order of match and for loop, or having one bound function that does the match instead
 func _ready():
 	max = triggerObjectArray.size()
@@ -88,6 +91,6 @@ func _norFunc(activated: bool):
 
 func _light():
 	if (lit):
-		$AnimatedSprite2D.animation = "activated"
+		activated.emit()
 	else:
-		$AnimatedSprite2D.animation = "default"
+		deactivated.emit()

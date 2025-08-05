@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://blc2megwvlwmr"]
 
-[ext_resource type="Script" uid="uid://dg20qt4kd2uv7" path="res://Assets/Nodes/Actors/Interactables/scripts/bucket.gd" id="1_5k4of"]
+[ext_resource type="Script" uid="uid://dg20qt4kd2uv7" path="res://Assets/Nodes/Actors/Interactables/Scripts/bucket.gd" id="1_5k4of"]
 [ext_resource type="Texture2D" uid="uid://vq05omq2yufl" path="res://Assets/Images/Spritesheets/bucket_spritesheet.png" id="2_mem0o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q68r7"]
