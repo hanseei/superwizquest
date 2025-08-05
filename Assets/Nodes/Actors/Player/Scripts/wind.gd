@@ -1,6 +1,6 @@
 extends Node
 
-signal wind_updated(speed, up_speed)
+signal wind_updated(x_speed, z_speed)
 
 var wind_speed := 0.0
 var jump_velocity := 0.0
@@ -11,8 +11,6 @@ func activate_wind(direction):
 	if active == false:
 		
 		active = true
-		
-		print("wind active")
 		
 		if direction.normalized() == Vector2.RIGHT:
 			
@@ -53,4 +51,3 @@ func deactivate_wind():
 	jump_velocity = 0.0
 	emit_signal("wind_updated", wind_speed, jump_velocity)
 	
-	print("wind stops")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://c7g3qysr2s8mq"]
+[gd_scene load_steps=13 format=4 uid="uid://c7g3qysr2s8mq"]
 
 [ext_resource type="Texture2D" uid="uid://t67xuw2rn3q2" path="res://Assets/Images/Tilesets/tileset_32x32(new).png" id="1_hj4v7"]
 [ext_resource type="PackedScene" uid="uid://clnon8w5k6rob" path="res://Assets/Nodes/Actors/Player/player.tscn" id="2_kuskl"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cwbjkioh2y6bw" path="res://Assets/Nodes/Actors/Interactables/torch.tscn" id="4_vwov1"]
 [ext_resource type="PackedScene" uid="uid://c2sylo50eqnp0" path="res://Assets/Nodes/Actors/Interactables/toggletest.tscn" id="5_57x3k"]
 [ext_resource type="PackedScene" uid="uid://blc2megwvlwmr" path="res://Assets/Nodes/Actors/Interactables/bucket.tscn" id="6_l42a0"]
+[ext_resource type="PackedScene" uid="uid://cbdaebxn04oax" path="res://Assets/Nodes/Actors/Interactables/Stone.tscn" id="7_5tspq"]
+[ext_resource type="Script" uid="uid://nnodhe6w2ssr" path="res://Assets/Nodes/Actors/Interactables/Scripts/physicsObjects.gd" id="8_hgiis"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kuskl"]
 
@@ -346,4 +348,11 @@ text = "NOR"
 position = Vector2(731, 604)
 scale = Vector2(2, 2)
 
+[node name="Stone" parent="." instance=ExtResource("7_5tspq")]
+position = Vector2(257, 384)
+script = ExtResource("8_hgiis")
+
+[connection signal="wind_updated" from="Player/Wind" to="Stone" method="_on_wind_wind_updated"]
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
+
+[editable path="Player"]

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const Gravity = 4000
+const Gravity = 10
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
 @export var spawn_point_node: NodePath
@@ -38,7 +38,7 @@ func _physics_process(delta: float):
 	
 	if !is_on_floor():
 		
-		velocity.y = 2* Gravity * delta
+		velocity.y = 800* Gravity * delta
 
 	
 	if jump_velocity != 0:
@@ -150,18 +150,9 @@ func cast_wind():
 		
 		wind_active = false
 	
-func _on_wind_updated(speed, up_speed):
-	wind_speed = speed
-	jump_velocity = up_speed
-	
-	print(velocity.y)
-	
-	if speed == 0:
-		# Assume wind has finished — remove it
-		var wind_instance = get_node("WindController")
-		if wind_instance:
-			wind_instance.queue_free()
-
+func _on_wind_updated(x_speed, Z_speed):
+	wind_speed = x_speed
+	jump_velocity = Z_speed
 
 func shoot_element():
 	match current_element:
