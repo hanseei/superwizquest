@@ -17,7 +17,6 @@ func _process(delta):
 		$Path2D/PathFollow2D.progress_ratio -= delta
 	
 func _opens():
-	print("Hello!")
 	open = true
 
 func _closes():

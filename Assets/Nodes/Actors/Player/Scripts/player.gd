@@ -49,6 +49,11 @@ func _physics_process(delta: float):
 	
 	if direction != 0:
 		facing_left = direction < 0
+		
+	if facing_left:
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.flip_h = false
 	
 	move_and_slide()
 	
