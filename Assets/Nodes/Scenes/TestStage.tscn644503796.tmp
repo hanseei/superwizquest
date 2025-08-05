@@ -361,7 +361,7 @@ pathNodes = Array[Vector2]([Vector2(0, 0), Vector2(-96, 0), Vector2(-96, 128), V
 position = Vector2(512, 624)
 triggerObjectArray = [NodePath("../Torch")]
 
-[node name="Stone" parent="." groups=["moveable"] instance=ExtResource("9_p5btu")]
+[node name="Stone" parent="." instance=ExtResource("9_p5btu")]
 position = Vector2(292, 580)
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

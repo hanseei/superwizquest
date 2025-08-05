@@ -4,14 +4,14 @@ class_name physicsObjects
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var wind = get_node("Player/Wind")
-#	wind.connect("wind_updated", Callable(self, "_on_wind_updated"))
+	var wind = get_node("../Player/Wind")
+	if (wind):
+		wind.connect("wind_updated", Callable(self, "_on_wind_wind_updated"))
+		print(wind)
+		_on_wind_wind_updated(1000,0)
+	else:
+		push_warning("!!No player with a wind-object detected!!")
 	
-	print(wind)
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_wind_wind_updated(x_speed: Variant, z_speed: Variant) -> void:
 	print( "wind on stone")
