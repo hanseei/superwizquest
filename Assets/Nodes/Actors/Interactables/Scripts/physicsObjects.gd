@@ -4,7 +4,7 @@ class_name physicsObjects
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var wind = get_node("Player/Wind")
+	var wind = get_node("../Player/Wind")
 #	wind.connect("wind_updated", Callable(self, "_on_wind_updated"))
 	
 	print(wind)
