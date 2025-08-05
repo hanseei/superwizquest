@@ -4,19 +4,19 @@ class_name ObjectTrigger
 
 enum LOGIC {AND, OR, NAND, NOR}
 
-@export var logic: LOGIC = 0
+@export var logic: LOGIC = LOGIC.AND
 @export var triggerObjectArray: Array[Area2D]
 
 var counter: int = 0 # Current number of lit torches
-var max: int = 0 # Amount of torches checked
+var maxAmnt: int = 0 # Amount of torches checked
 var lit: bool = false # Checks whether signal is good or bad
 
-signal activated
-signal deactivated
+signal triggered
+signal detriggered
 
 # TODO: Potential for refactor with changing the order of match and for loop, or having one bound function that does the match instead
 func _ready():
-	max = triggerObjectArray.size()
+	maxAmnt = triggerObjectArray.size()
 	if (triggerObjectArray.size() > 0):
 		match logic:
 			LOGIC.AND:
@@ -47,7 +47,7 @@ func _andFunc(activated: bool):
 	else:
 		counter -= 1
 		
-	if (counter >= max):
+	if (counter >= maxAmnt):
 		lit = true
 	else:
 		lit = false
@@ -71,7 +71,7 @@ func _nandFunc(activated: bool):
 		counter += 1
 	else:
 		counter -= 1
-	if (counter < max):
+	if (counter < maxAmnt):
 		lit = true
 	else:
 		lit = false
@@ -91,6 +91,6 @@ func _norFunc(activated: bool):
 
 func _light():
 	if (lit):
-		activated.emit()
+		triggered.emit()
 	else:
-		deactivated.emit()
+		detriggered.emit()

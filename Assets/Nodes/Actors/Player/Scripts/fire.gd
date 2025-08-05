@@ -9,6 +9,7 @@ func _physics_process(delta: float):
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
+@warning_ignore("unused_parameter")
 func _on_Area2D_body_entered(body):
 	queue_free()
 	
