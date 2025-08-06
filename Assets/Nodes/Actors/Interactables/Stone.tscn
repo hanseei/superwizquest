@@ -5,7 +5,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ovohm"]
 
-[node name="Stone" type="RigidBody2D" groups=["stones"]]
+[node name="Stone" type="RigidBody2D" groups=["moveable", "stones"]]
 script = ExtResource("1_78y6s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -15,6 +15,15 @@ run/main_scene="uid://c7g3qysr2s8mq"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Gamecontroller="*res://gamecontroller.gd"
+
+[global_group]
+
+moveable=""
+stones=""
+
 [input]
 
 move_left={

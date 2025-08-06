@@ -151,6 +151,8 @@ func cast_wind():
 	if down_key:
 		direction = Vector2.DOWN
 	
+	Gamecontroller.global_direction = direction
+	
 	if wind_active == false:
 		
 		wind_active = true
@@ -168,6 +170,7 @@ func cast_wind():
 func _on_wind_updated(x_speed, Z_speed):
 	wind_speed = x_speed
 	jump_velocity = Z_speed
+	
 
 func shoot_element():
 	match current_element:

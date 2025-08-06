@@ -36,7 +36,6 @@ func activate_wind(direction):
 			jump_velocity = -2000
 			
 		
-		print(wind_speed, ", ", jump_velocity)
 		emit_signal("wind_updated", wind_speed, jump_velocity)
 		get_tree().call_group("moveable","_on_wind_updated",wind_speed,jump_velocity)
 		await get_tree().create_timer(5.0).timeout
