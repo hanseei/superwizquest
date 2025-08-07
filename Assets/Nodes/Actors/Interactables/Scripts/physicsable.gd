@@ -42,7 +42,7 @@ func _on_wind_updated(x_speed: Variant, z_speed: Variant):
 		moving = false
 		
 
-
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	if moving:
 		apply_central_force(Vector2(wind_speed, jump_velocity))
