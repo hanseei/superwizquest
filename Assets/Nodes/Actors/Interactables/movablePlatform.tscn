@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://mmnaokb7xxf0"]
 
-[ext_resource type="Script" uid="uid://v7qfol6mhs6n" path="res://Assets/Nodes/Actors/Interactables/scripts/movable_platform.gd" id="1_def3y"]
+[ext_resource type="Script" uid="uid://v7qfol6mhs6n" path="res://Assets/Nodes/Actors/Interactables/Scripts/movable_platform.gd" id="1_def3y"]
 [ext_resource type="Texture2D" uid="uid://3sicoa1c2i2b" path="res://Assets/Images/Spritesheets/platform_spritesheet.png" id="2_42uoe"]
 
 [sub_resource type="Curve2D" id="Curve2D_def3y"]
