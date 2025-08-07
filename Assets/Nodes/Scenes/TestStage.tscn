@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cbdaebxn04oax" path="res://Assets/Nodes/Actors/Interactables/Stone.tscn" id="7_5tspq"]
 [ext_resource type="PackedScene" uid="uid://b22d3disdyijl" path="res://Assets/Nodes/Actors/Interactables/door.tscn" id="8_hgiis"]
 [ext_resource type="PackedScene" uid="uid://bvc5bj0go1alw" path="res://Assets/Nodes/Actors/Interactables/movingPlatform.tscn" id="8_nj415"]
-[ext_resource type="PackedScene" path="res://Assets/Nodes/Actors/Interactables/stone_bucket.tscn" id="10_qe2em"]
+[ext_resource type="PackedScene" uid="uid://bovilvnyemh8r" path="res://Assets/Nodes/Actors/Interactables/stone_bucket.tscn" id="10_qe2em"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kuskl"]
 
@@ -365,58 +365,6 @@ script = ExtResource("3_hjgtx")
 position = Vector2(928, 7.5)
 shape = SubResource("RectangleShape2D_vwov1")
 
-[node name="Torch" parent="." instance=ExtResource("4_vwov1")]
-position = Vector2(666, 584)
-scale = Vector2(2, 2)
-
-[node name="Toggletest" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("5_57x3k")]
-texture_filter = 1
-position = Vector2(664, 515)
-triggerObjectArray = [NodePath("../Torch")]
-
-[node name="torch" parent="." instance=ExtResource("4_vwov1")]
-position = Vector2(1411, 587)
-
-[node name="torch2" parent="." instance=ExtResource("4_vwov1")]
-position = Vector2(1594, 588)
-
-[node name="torch3" parent="." instance=ExtResource("4_vwov1")]
-position = Vector2(1868, 525)
-
-[node name="torch4" parent="." instance=ExtResource("4_vwov1")]
-position = Vector2(2040, 522)
-
-[node name="torch5" parent="." instance=ExtResource("4_vwov1")]
-position = Vector2(2343, 454)
-
-[node name="torch6" parent="." instance=ExtResource("4_vwov1")]
-position = Vector2(2483, 459)
-
-[node name="torch7" parent="." instance=ExtResource("4_vwov1")]
-position = Vector2(2775, 391)
-
-[node name="torch8" parent="." instance=ExtResource("4_vwov1")]
-position = Vector2(2929, 390)
-
-[node name="Toggletest2" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("5_57x3k")]
-position = Vector2(2844, 336)
-logic = 3
-triggerObjectArray = [NodePath("../torch7"), NodePath("../torch8")]
-
-[node name="Toggletest3" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("5_57x3k")]
-position = Vector2(2413, 397)
-logic = 2
-triggerObjectArray = [NodePath("../torch5"), NodePath("../torch6")]
-
-[node name="Toggletest4" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("5_57x3k")]
-position = Vector2(1958, 463)
-logic = 1
-triggerObjectArray = [NodePath("../torch3"), NodePath("../torch4")]
-
-[node name="Toggletest5" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("5_57x3k")]
-position = Vector2(1511, 554)
-triggerObjectArray = [NodePath("../torch"), NodePath("../torch2")]
-
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 1495.0
 offset_top = 512.0
@@ -458,7 +406,7 @@ pathNodes = Array[Vector2]([Vector2(0, 0), Vector2(-96, 0), Vector2(-96, 128), V
 
 [node name="Door" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("8_hgiis")]
 position = Vector2(512, 624)
-triggerObjectArray = [NodePath("../Torch")]
+triggerObjectArray = [NodePath("../torch")]
 
 [node name="Stone bucket" parent="." instance=ExtResource("10_qe2em")]
 position = Vector2(545, 429)
@@ -466,8 +414,13 @@ position = Vector2(545, 429)
 [node name="Stone" parent="." instance=ExtResource("7_5tspq")]
 position = Vector2(549, 365)
 
+[node name="Toggletest" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("5_57x3k")]
+position = Vector2(654, 534)
+triggerObjectArray = [NodePath("../torch")]
+
+[node name="torch" parent="." instance=ExtResource("4_vwov1")]
+position = Vector2(638, 588)
+
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
-[connection signal="activated" from="Stone bucket" to="Stone bucket" method="Stone_inside"]
-[connection signal="body_entered" from="Stone bucket" to="Stone bucket" method="body_entered"]
 
 [editable path="Player"]

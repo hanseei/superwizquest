@@ -9,6 +9,10 @@ var deactivateGroups: Array[String]
 signal deactivated
 signal activated
 
+func _ready():
+	area_entered.connect(_on_area_entered)
+	body_entered.connect(_on_body_entered)
+	
 
 #	If hit with a firebolt, check if already lit, if not, light and emit 'lit' signal.
 func activateTrigger():
@@ -23,12 +27,22 @@ func deactivateTrigger():
 		deactivated.emit()
 
 #	On collision (layer 4), check if object is in an activating or deactivating group
-func area_entered(area: Area2D):
+func _on_area_entered(area: Area2D):
 	for group in activateGroups:
 		if (area.is_in_group(group)):
 			activateTrigger()
 			return
 	for group in deactivateGroups:
 		if (area.is_in_group(group)):
+			deactivateTrigger()
+			return
+			
+func _on_body_entered(body: Node):
+	for group in activateGroups:
+		if (body.is_in_group(group)):
+			activateTrigger()
+			return
+	for group in deactivateGroups:
+		if (body.is_in_group(group)):
 			deactivateTrigger()
 			return

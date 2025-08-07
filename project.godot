@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Gamecontroller="*res://gamecontroller.gd"
+Gamecontroller="*res://Assets/Nodes/Scripts/gamecontroller.gd"
 
 [global_group]
 

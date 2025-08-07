@@ -3,6 +3,9 @@ extends Interactable
 func _ready():
 	activateGroups = ["fires"]
 	deactivateGroups = ["waters"]
+	activated.connect(lightTorch)
+	deactivated.connect(douseTorch)
+	super._ready()
 
 #	If hit with a firebolt, check if already lit, if not, light and emit 'lit' signal.
 func lightTorch():

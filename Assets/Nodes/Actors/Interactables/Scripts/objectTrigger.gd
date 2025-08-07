@@ -42,48 +42,32 @@ func _ready():
 
 # Ups and downs the counter, toggles lit if all torches are lit
 func _andFunc(activated: bool):
-	if (activated):
-		counter += 1
-	else:
-		counter -= 1
-		
-	if (counter >= maxAmnt):
-		lit = true
-	else:
-		lit = false
-	_light()
+	_increment(activated)
+	_logicCheck(counter >= maxAmnt)
 
 # Ups and downs the counter, toggles lit if at least one torch is lit
 func _orFunc(activated: bool):
-	if (activated):
-		counter += 1
-	else:
-		counter -= 1
-	if (counter >= 1):
-		lit = true
-	else:
-		lit = false
-	_light()
+	_increment(activated)
+	_logicCheck(counter >= 1)
 	
 # Ups and downs the counter, toggles lit if not all torches are lit
 func _nandFunc(activated: bool):
-	if (activated):
-		counter += 1
-	else:
-		counter -= 1
-	if (counter < maxAmnt):
-		lit = true
-	else:
-		lit = false
-	_light()
+	_increment(activated)
+	_logicCheck(counter < maxAmnt)
 	
 # Ups and downs the counter, toggles lit if no torches are lit
 func _norFunc(activated: bool):
+	_increment(activated)
+	_logicCheck(counter == 0)
+	
+func _increment(activated: bool):
 	if (activated):
 		counter += 1
 	else:
 		counter -= 1
-	if (counter == 0):
+	
+func _logicCheck(trigger: bool):
+	if (trigger):
 		lit = true
 	else:
 		lit = false

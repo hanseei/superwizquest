@@ -15,7 +15,7 @@ func _on_wind_updated(x_speed: Variant, z_speed: Variant):
 		
 	if Gamecontroller.global_direction.normalized() ==  Vector2.LEFT:
 		
-		wind_speed = -200.0
+		wind_speed = -2000.0
 		jump_velocity = 0
 		print("left")
 		

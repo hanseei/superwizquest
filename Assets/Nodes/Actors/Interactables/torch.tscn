@@ -53,7 +53,3 @@ shape = SubResource("RectangleShape2D_3f0jf")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_36g16")
 autoplay = "default"
-
-[connection signal="activated" from="." to="." method="lightTorch"]
-[connection signal="area_entered" from="." to="." method="area_entered"]
-[connection signal="deactivated" from="." to="." method="douseTorch"]
