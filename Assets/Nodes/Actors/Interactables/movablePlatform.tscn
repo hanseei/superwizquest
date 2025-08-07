@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://mmnaokb7xxf0"]
+
+[ext_resource type="Script" uid="uid://v7qfol6mhs6n" path="res://Assets/Nodes/Actors/Interactables/scripts/movable_platform.gd" id="1_def3y"]
+[ext_resource type="Texture2D" uid="uid://3sicoa1c2i2b" path="res://Assets/Images/Spritesheets/platform_spritesheet.png" id="2_42uoe"]
+
+[sub_resource type="Curve2D" id="Curve2D_def3y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42uoe"]
+size = Vector2(96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o8rh"]
+atlas = ExtResource("2_42uoe")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i45sb"]
+atlas = ExtResource("2_42uoe")
+region = Rect2(0, 32, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en0ss"]
+atlas = ExtResource("2_42uoe")
+region = Rect2(0, 64, 96, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r7sc6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o8rh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i45sb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en0ss")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 10.0
+}]
+
+[node name="MovablePlatform" type="Area2D" groups=["moveable"]]
+script = ExtResource("1_def3y")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_def3y")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+progress = 128.0
+rotates = false
+cubic_interp = false
+loop = false
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Path2D/PathFollow2D"]
+collision_layer = 2
+collision_mask = 2
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/RigidBody2D"]
+position = Vector2(48, 16)
+shape = SubResource("RectangleShape2D_42uoe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
+texture_filter = 1
+position = Vector2(48, 16)
+sprite_frames = SubResource("SpriteFrames_r7sc6")
+animation = &"moving"
+autoplay = "default"
