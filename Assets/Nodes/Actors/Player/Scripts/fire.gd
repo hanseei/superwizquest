@@ -3,6 +3,9 @@ extends Area2D
 var speed = 750
 var velocity = Vector2.ZERO
 
+func _ready():
+	$VisibleOnScreenEnabler2D.screen_exited.connect(_on_VisibilityNotifier2D_screen_exited)
+
 func _physics_process(delta: float):
 	position += velocity * delta
 
