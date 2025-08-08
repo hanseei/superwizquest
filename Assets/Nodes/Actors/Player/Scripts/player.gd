@@ -158,15 +158,12 @@ func cast_wind():
 	if wind_active == false:
 		
 		wind_active = true
-		var wind_instance = wind.instantiate()
-		get_tree().current_scene.add_child(wind_instance)
 		
-		wind_instance.connect("wind_updated", self._on_wind_updated)
-		
-		wind_instance.activate_wind()
+		$Wind.activate_wind()
 		
 		await get_tree().create_timer(Gamecontroller.wind_timer).timeout
 		
+		$Wind.deactivate_wind()
 		wind_active = false
 	
 func _on_wind_updated():

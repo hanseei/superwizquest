@@ -35,12 +35,9 @@ func activate_wind():
 		
 		emit_signal("wind_updated")
 		get_tree().call_group("moveable","_on_wind_updated")
-		await get_tree().create_timer(Gamecontroller.wind_timer).timeout
-		deactivate_wind()
 
 func deactivate_wind():
 	active = false
 	Gamecontroller.global_x_speed = 0.0
 	Gamecontroller.global_z_speed = 0.0
 	emit_signal("wind_updated")
-	
