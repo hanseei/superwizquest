@@ -164,7 +164,6 @@ func cast_wind():
 		await get_tree().create_timer(Gamecontroller.wind_timer).timeout
 		
 		$Wind.deactivate_wind()
-		wind_active = false
 	
 func _on_wind_updated():
 	wind_speed = Gamecontroller.global_x_speed
