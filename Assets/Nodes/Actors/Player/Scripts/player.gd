@@ -45,7 +45,6 @@ func _physics_process(delta: float):
 	
 	if jump_velocity != 0:
 		velocity.y = jump_velocity * delta
-		
 	
 	if direction != 0:
 		facing_left = direction < 0
@@ -76,6 +75,7 @@ func _input(event):
 	if event.is_action_released("move_down"):
 		down_key = false
 		print("down released")
+		print(Gamecontroller.wind_timer)
 		
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -163,13 +163,13 @@ func cast_wind():
 		
 		wind_instance.activate_wind(direction)
 		
-		await get_tree().create_timer(5.0).timeout
+		await get_tree().create_timer(Gamecontroller.wind_timer).timeout
 		
 		wind_active = false
 	
-func _on_wind_updated(x_speed, Z_speed):
-	wind_speed = x_speed
-	jump_velocity = Z_speed
+func _on_wind_updated():
+	wind_speed = Gamecontroller.global_x_speed
+	jump_velocity = Gamecontroller.global_z_speed
 	
 
 func shoot_element():

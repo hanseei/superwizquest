@@ -2,47 +2,45 @@ extends RigidBody2D
 
 class_name Physicsable
 
-var wind_speed = 0
-var jump_velocity = 0
-
 var moving = false
 
 
-func _on_wind_updated(x_speed: Variant, z_speed: Variant):
+func _on_wind_updated():
 		
 	if Gamecontroller.global_direction.normalized() == Vector2.RIGHT:
 		
-		wind_speed = 200.0
-		jump_velocity = 0
+		Gamecontroller.global_x_speed = 200.0
+		Gamecontroller.global_z_speed = 0
 		
 	if Gamecontroller.global_direction.normalized() ==  Vector2.LEFT:
 		
-		wind_speed = -200.0
-		jump_velocity = 0
+		Gamecontroller.global_x_speed = -200.0
+		Gamecontroller.global_z_speed = 0
 		
 	if Gamecontroller.global_direction ==  Vector2.DOWN:
 		
-		wind_speed = 0
-		jump_velocity = 1600
+		Gamecontroller.global_x_speed = 0
+		Gamecontroller.global_z_speed = 1600
 		
 	if Gamecontroller.global_direction ==  Vector2.UP:
 		
-		wind_speed = 0
-		jump_velocity = -1000
+		Gamecontroller.global_x_speed = 0
+		Gamecontroller.global_z_speed = -1000
 	
 	if Gamecontroller.global_direction == Vector2.ZERO:
-		wind_speed = 0
-		jump_velocity = 0
+		Gamecontroller.global_x_speed = 0
+		Gamecontroller.global_z_speed = 0
 		print("no direction")
 	
 	
-	if x_speed or z_speed != 0:
+	if Gamecontroller.global_x_speed or Gamecontroller.global_z_speed != 0:
 		moving = true
-		await get_tree().create_timer(5.0).timeout
+		print("moving")
+		await get_tree().create_timer(Gamecontroller.wind_timer).timeout
 		moving = false
 		
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	if moving:
-		apply_central_force(Vector2(wind_speed, jump_velocity))
+		apply_central_force(Vector2(Gamecontroller.global_x_speed, Gamecontroller.global_z_speed))
