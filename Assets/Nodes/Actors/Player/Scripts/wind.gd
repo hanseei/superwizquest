@@ -4,30 +4,30 @@ signal wind_updated()
 
 var active := false
 
-func activate_wind(direction):
+func activate_wind():
 	
 	if active == false:
 		
 		active = true
 		
-		if direction.normalized() == Vector2.RIGHT:
+		if Gamecontroller.global_direction.normalized() == Vector2.RIGHT:
 			
 			Gamecontroller.global_x_speed = 200.0
 			Gamecontroller.global_z_speed = 0
 			
-		if direction.normalized() ==  Vector2.LEFT:
+		if Gamecontroller.global_direction.normalized() ==  Vector2.LEFT:
 			
 			Gamecontroller.global_x_speed = -200.0
 			Gamecontroller.global_z_speed = 0
 
 			
-		if direction.normalized() ==  Vector2.DOWN:
+		if Gamecontroller.global_direction.normalized() ==  Vector2.DOWN:
 			
 			Gamecontroller.global_x_speed = 0
 			Gamecontroller.global_z_speed = 16000
 		
 			
-		if direction.normalized() ==  Vector2.UP:
+		if Gamecontroller.global_direction.normalized() ==  Vector2.UP:
 			
 			Gamecontroller.global_x_speed = 0
 			Gamecontroller.global_z_speed = -2000

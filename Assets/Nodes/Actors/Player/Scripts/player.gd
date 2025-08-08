@@ -163,7 +163,7 @@ func cast_wind():
 		
 		wind_instance.connect("wind_updated", self._on_wind_updated)
 		
-		wind_instance.activate_wind(direction)
+		wind_instance.activate_wind()
 		
 		await get_tree().create_timer(Gamecontroller.wind_timer).timeout
 		
