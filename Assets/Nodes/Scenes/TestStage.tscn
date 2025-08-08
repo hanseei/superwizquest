@@ -389,11 +389,11 @@ position = Vector2(2370, 624)
 triggerObjectArray = [NodePath("../Bucket")]
 
 [node name="Door3" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("8_hgiis")]
-position = Vector2(3587, 626)
+position = Vector2(3584, 624)
 triggerObjectArray = [NodePath("../Stone bucket")]
 
 [node name="Stone bucket" parent="." instance=ExtResource("10_qe2em")]
-position = Vector2(3618, 434)
+position = Vector2(3616, 434)
 
 [node name="Stone" parent="." instance=ExtResource("7_5tspq")]
 position = Vector2(3377, 387)
