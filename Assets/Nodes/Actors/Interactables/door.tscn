@@ -13,6 +13,8 @@ point_count = 2
 size = Vector2(64, 128)
 
 [node name="Door" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
 script = ExtResource("1_hm3cw")
 
 [node name="Path2D" type="Path2D" parent="."]

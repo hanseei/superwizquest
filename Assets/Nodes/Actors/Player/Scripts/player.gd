@@ -130,7 +130,9 @@ func summon_earth_block():
 		
 		var ray_goal = spawn_pos + Vector2(0,128)
 		var space_state = get_world_2d().direct_space_state
-		var query = PhysicsRayQueryParameters2D.create(spawn_pos, ray_goal)
+
+		var query = PhysicsRayQueryParameters2D.create(spawn_pos, ray_goal, 1)
+
 		var result = space_state.intersect_ray(query)
 		
 		if (!result.is_empty()):

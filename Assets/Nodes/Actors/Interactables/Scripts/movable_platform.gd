@@ -26,8 +26,7 @@ func _process(delta):
 				$Path2D/PathFollow2D/AnimatedSprite2D.animation = "default"
 				moving = false
 
-@warning_ignore("unused_parameter")
-func _on_wind_updated(x_speed: Variant, z_speed: Variant):
+func _on_wind_updated():
 	moveRight = !moveRight
 	moving = true
 	$Path2D/PathFollow2D/AnimatedSprite2D.animation = "moving"

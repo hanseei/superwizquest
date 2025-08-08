@@ -43,6 +43,8 @@ animations = [{
 }]
 
 [node name="MovablePlatform" type="Area2D" groups=["moveable"]]
+collision_layer = 16
+collision_mask = 0
 script = ExtResource("1_def3y")
 
 [node name="Path2D" type="Path2D" parent="."]
