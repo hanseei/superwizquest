@@ -119,7 +119,7 @@ func summon_earth_block():
 		var spawn_pos = $Orb.global_position
 
 		# Offset forward based on facing direction
-		var offset := Vector2(128, -64)  # Adjust distance as needed
+		var offset := Vector2(128, -32)  # Adjust distance as needed
 		if down_key == true || up_key == true:
 			offset.x = 0
 		if facing_left:

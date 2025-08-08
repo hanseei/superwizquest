@@ -23,6 +23,7 @@ Gamecontroller="*res://Assets/Nodes/Scripts/gamecontroller.gd"
 
 moveable=""
 stones=""
+earth-ignore=""
 
 [input]
 
