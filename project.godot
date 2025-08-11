@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Gamecontroller="*res://Assets/Nodes/Scripts/gamecontroller.gd"
 
+[display]
+
+window/vsync/vsync_mode=3
+
 [global_group]
 
 moveable=""
