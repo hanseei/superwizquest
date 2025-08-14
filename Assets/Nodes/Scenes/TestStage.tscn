@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c7g3qysr2s8mq"]
+[gd_scene load_steps=17 format=4 uid="uid://c7g3qysr2s8mq"]
 
 [ext_resource type="PackedScene" uid="uid://clnon8w5k6rob" path="res://Assets/Nodes/Actors/Player/player.tscn" id="2_kuskl"]
 [ext_resource type="Texture2D" uid="uid://cpjb6tv8ka4l3" path="res://Assets/Images/Tilesets/tilemap.png" id="2_nj415"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bvc5bj0go1alw" path="res://Assets/Nodes/Actors/Interactables/movingPlatform.tscn" id="8_nj415"]
 [ext_resource type="PackedScene" uid="uid://bovilvnyemh8r" path="res://Assets/Nodes/Actors/Interactables/stone_bucket.tscn" id="10_qe2em"]
 [ext_resource type="PackedScene" uid="uid://mmnaokb7xxf0" path="res://Assets/Nodes/Actors/Interactables/movablePlatform.tscn" id="11_qe2em"]
+[ext_resource type="PackedScene" uid="uid://dp1slpa606d67" path="res://Assets/Nodes/Actors/NPCs/basic_enemy.tscn" id="12_quyxq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kuskl"]
 
@@ -337,7 +338,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/2 = SubResource("TileSetAtlasSource_qe2em")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwov1"]
-size = Vector2(7485, 43)
+size = Vector2(7717, 43)
 
 [node name="TestStage" type="Node2D"]
 
@@ -361,12 +362,16 @@ position_smoothing_enabled = true
 drag_left_margin = 0.5
 drag_right_margin = 0.53
 
+[node name="BasicEnemy" parent="." instance=ExtResource("12_quyxq")]
+position = Vector2(310, 485)
+collision_mask = 23
+
 [node name="Killzone" type="Area2D" parent="."]
 position = Vector2(600, 800)
 script = ExtResource("3_hjgtx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(1581.5, 7.5)
+position = Vector2(1697.5, 7.5)
 shape = SubResource("RectangleShape2D_vwov1")
 
 [node name="Bucket" parent="." instance=ExtResource("6_l42a0")]
