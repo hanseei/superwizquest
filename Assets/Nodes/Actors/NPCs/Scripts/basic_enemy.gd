@@ -22,9 +22,11 @@ func _process(delta: float) -> void:
 	if !is_on_floor():
 		
 		velocity.y = 1600 * Gravity * delta
+		$AnimatedSprite2D.frame = 7
 	
 	if Gamecontroller.global_z_speed != 0:
 		velocity.y = Gamecontroller.global_z_speed* 4 * delta
+		$AnimatedSprite2D.frame = 5
 	
 	move_and_slide()
 	

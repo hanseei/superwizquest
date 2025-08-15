@@ -20,3 +20,12 @@ func _on_Area2D_body_entered(body):
 func setAnimDirection(facing_left: bool):
 	match facing_left:
 		false: $AnimatedSprite2D.flip_h = true
+
+
+func _on_body_entered(body: Node2D) -> void:
+	print("fireball triggered by:", body)
+	if body.has_method("respawn"):
+		print("Calling respawn() on:", body.name)
+		body.respawn()
+	else:
+		print(body.name, "has no respawn() method")
