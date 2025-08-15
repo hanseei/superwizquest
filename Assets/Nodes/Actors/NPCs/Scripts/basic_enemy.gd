@@ -4,10 +4,10 @@ const Gravity = 10
 
 @onready var spawn_point = get_node("/root/TestStage/SpawnPointFrog")
 
-var moving_left = true
 var movment_speed = 100
 var jump_velocity = 0
 var wind_speed = 0
+var direction = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,12 +16,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	var direction = -1
-	if moving_left == true:
-		direction = -1
-	elif moving_left == false:
-		direction = 1
-		
+
 	velocity.x = direction * movment_speed + Gamecontroller.global_x_speed
 	
 	if !is_on_floor():
@@ -43,9 +38,11 @@ func _process(delta: float) -> void:
 		if collision:
 			var normal = collision.get_normal()
 			if normal.x < 0:
-				moving_left = true
+				direction = -1
+				$AnimatedSprite2D.flip_h = false
 			elif normal.x > 0:
-				moving_left = false
+				direction = 1
+				$AnimatedSprite2D.flip_h = true
 			print(normal)
 
 func respawn():
