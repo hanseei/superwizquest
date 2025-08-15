@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
+const Gravity = 10
+
 var moving_left = true
 var movment_speed = 100
 var jump_velocity = 0
 var wind_speed = 0
-const Gravity = 10
+var spawn_point = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,6 +34,11 @@ func _process(delta: float) -> void:
 	
 	if is_on_wall():
 		var collision = get_slide_collision(0)
+		var collider = collision.get_collider()
+		if collider.has_method("respawn"):
+			print("Calling respawn() on:", collider.name)
+			collider.respawn()
+			
 		if collision:
 			var normal = collision.get_normal()
 			if normal.x < 0:
@@ -40,12 +47,7 @@ func _process(delta: float) -> void:
 				moving_left = false
 			print(normal)
 
-
-@warning_ignore("unused_parameter")
-func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
-	print("enemy triggered by:", body)
-	if body.has_method("respawn"):
-		print("Calling respawn() on:", body.name)
-		body.respawn()
-	else: 
-		pass
+func respawn():
+	print("Respawning enemy...")
+	global_position = spawn_point  # or wherever you want to reset
+	velocity = Vector2.ZERO

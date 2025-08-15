@@ -12,7 +12,7 @@ var wind_speed = 0
 var wind_active = false
 
 
-var spawn_point := Vector2.ZERO
+@onready var spawn_point = get_node("/root/TestStage/SpawnPointPlayer")
 
 const fire = preload("res://Assets/Nodes/Actors/Player/fire.tscn")
 const water = preload("res://Assets/Nodes/Actors/Player/water.tscn")
@@ -181,5 +181,5 @@ func shoot_element():
 
 func respawn():
 	print("Respawning player...")
-	global_position = spawn_point  # or wherever you want to reset
+	global_position = spawn_point.global_position
 	velocity = Vector2.ZERO

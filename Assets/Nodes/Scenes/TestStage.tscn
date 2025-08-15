@@ -349,8 +349,11 @@ tile_map_data = PackedByteArray("AAD///7/AgACAAEAAAD/////AgADAAEAAAAAAP//AgABAAA
 tile_set = SubResource("TileSet_hjgtx")
 use_kinematic_bodies = true
 
-[node name="SpawnPoint" type="Node2D" parent="."]
+[node name="SpawnPointPlayer" type="Node2D" parent="."]
 position = Vector2(129, 376)
+
+[node name="SpawnPointFrog" type="Node2D" parent="."]
+position = Vector2(-222.611, 470.942)
 
 [node name="Player" parent="." instance=ExtResource("2_kuskl")]
 position = Vector2(129, 502)
