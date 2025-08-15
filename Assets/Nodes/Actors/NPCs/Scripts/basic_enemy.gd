@@ -51,3 +51,9 @@ func respawn():
 	print("Respawning enemy...")
 	global_position = spawn_point.global_position
 	velocity = Vector2.ZERO
+	
+func wet():
+	movment_speed = movment_speed/2
+	await get_tree().create_timer(1.0).timeout
+	movment_speed = 100
+ 

@@ -97,7 +97,7 @@ animations = [{
 
 [node name="fire" type="Area2D" groups=["fires"]]
 collision_layer = 8
-collision_mask = 13
+collision_mask = 29
 script = ExtResource("1_5ltu8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
