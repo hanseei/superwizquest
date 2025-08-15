@@ -2,11 +2,12 @@ extends CharacterBody2D
 
 const Gravity = 10
 
+@onready var spawn_point = get_node("/root/TestStage/SpawnPointFrog")
+
 var moving_left = true
 var movment_speed = 100
 var jump_velocity = 0
 var wind_speed = 0
-var spawn_point = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
