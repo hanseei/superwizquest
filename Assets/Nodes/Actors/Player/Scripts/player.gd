@@ -29,6 +29,8 @@ var up_key = false
 var down_key = false
 
 func _ready():
+	
+	$"Ui-canvas/Ui-icon/AnimatedSprite2D".animation = current_element
 	if has_node(spawn_point_node):
 		spawn_point = get_node(spawn_point_node).global_position
 		
@@ -82,6 +84,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shift"):
 		current_element_index = (current_element_index + 1) % elements.size()
 		current_element = elements[current_element_index]
+		$"Ui-canvas/Ui-icon/AnimatedSprite2D".animation = current_element
 		print("Switched to:", current_element)
 		
 

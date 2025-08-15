@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhe32jvxc5xqf"]
+
+[ext_resource type="PackedScene" uid="uid://bcsow3affqx1j" path="res://Assets/Nodes/UI/UI-icon.tscn" id="1_qegfr"]
+
+[node name="Ui-canvas" type="CanvasLayer"]
+
+[node name="Ui-icon" parent="." instance=ExtResource("1_qegfr")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_left = 60.0
+offset_top = -48.0
+offset_right = 60.0
+offset_bottom = -48.0
+grow_horizontal = 1
+grow_vertical = 0
+scale = Vector2(2, 2)
