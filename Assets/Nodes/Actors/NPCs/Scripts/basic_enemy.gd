@@ -8,6 +8,7 @@ var movment_speed = 100
 var jump_velocity = 0
 var wind_speed = 0
 var direction = -1
+var soaking  = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,7 +17,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-
 	velocity.x = direction * movment_speed + Gamecontroller.global_x_speed
 	
 	if !is_on_floor():
@@ -53,7 +53,16 @@ func respawn():
 	velocity = Vector2.ZERO
 	
 func wet():
-	movment_speed = movment_speed/2
-	await get_tree().create_timer(1.0).timeout
-	movment_speed = 100
- 
+	if soaking == false:
+		soaking = true
+		var base_speed = movment_speed
+		print(movment_speed)
+		movment_speed = base_speed/2
+		$AnimatedSprite2D.speed_scale = 0.5
+		await get_tree().create_timer(5.0).timeout
+		movment_speed = base_speed
+		$AnimatedSprite2D.speed_scale = 1
+		print(movment_speed)
+		soaking = false
+	else:
+		pass
