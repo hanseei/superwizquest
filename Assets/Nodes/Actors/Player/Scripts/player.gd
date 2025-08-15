@@ -42,7 +42,7 @@ func _physics_process(delta: float):
 	
 	if !is_on_floor():
 		
-		velocity.y = 800* Gravity * delta
+		velocity.y = 800 * Gravity * delta
 
 	
 	if jump_velocity != 0:

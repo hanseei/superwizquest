@@ -26,10 +26,10 @@ func _process(delta: float) -> void:
 	
 	if !is_on_floor():
 		
-		velocity.y = 800* Gravity * delta
+		velocity.y = 1600 * Gravity * delta
 	
-	if jump_velocity != 0:
-		velocity.y = jump_velocity * delta
+	if Gamecontroller.global_z_speed != 0:
+		velocity.y = Gamecontroller.global_z_speed* 4 * delta
 	
 	move_and_slide()
 	
@@ -50,5 +50,5 @@ func _process(delta: float) -> void:
 
 func respawn():
 	print("Respawning enemy...")
-	global_position = spawn_point  # or wherever you want to reset
+	global_position = spawn_point.global_position
 	velocity = Vector2.ZERO
