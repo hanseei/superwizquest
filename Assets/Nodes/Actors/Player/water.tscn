@@ -52,7 +52,7 @@ animations = [{
 [node name="water" type="Area2D" groups=["waters"]]
 scale = Vector2(0.5, 0.5)
 collision_layer = 8
-collision_mask = 29
+collision_mask = 25
 script = ExtResource("1_7wcun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["waters"]]
@@ -62,12 +62,8 @@ shape = SubResource("CircleShape2D_3isjq")
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-3.8147e-07, -1.81794e-07)
 
-<<<<<<< Updated upstream
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-=======
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_400dl")
 speed_scale = 0.0
->>>>>>> Stashed changes
