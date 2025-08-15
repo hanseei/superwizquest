@@ -1,26 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://b43fr5tpkqw0n"]
+[gd_scene load_steps=10 format=3 uid="uid://b43fr5tpkqw0n"]
 
 [ext_resource type="Script" uid="uid://bjs5epuods5p7" path="res://Assets/Nodes/Actors/Player/Scripts/water.gd" id="1_7wcun"]
-[ext_resource type="Texture2D" uid="uid://d03eysae1pgey" path="res://Assets/Images/Spritesheets/water_sprite.png" id="2_m6nuc"]
+[ext_resource type="Texture2D" uid="uid://cw2y1jybdfmyo" path="res://Assets/Images/Spritesheets/waterSpritesheet.png" id="2_m6nuc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wcun"]
-size = Vector2(14, 14)
+[sub_resource type="CircleShape2D" id="CircleShape2D_3isjq"]
+radius = 8.02773
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf0un"]
+atlas = ExtResource("2_m6nuc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4f5a"]
+atlas = ExtResource("2_m6nuc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoynt"]
+atlas = ExtResource("2_m6nuc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s21cf"]
+atlas = ExtResource("2_m6nuc")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av5t3"]
+atlas = ExtResource("2_m6nuc")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_400dl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xf0un")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4f5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoynt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s21cf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av5t3")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="water" type="Area2D" groups=["waters"]]
+scale = Vector2(0.5, 0.5)
 collision_layer = 8
 collision_mask = 29
 script = ExtResource("1_7wcun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["waters"]]
 scale = Vector2(1.5, 1.5)
-shape = SubResource("RectangleShape2D_7wcun")
-
-[node name="GrassMid" type="Sprite2D" parent="."]
-texture_filter = 1
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_m6nuc")
+shape = SubResource("CircleShape2D_3isjq")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-3.8147e-07, -1.81794e-07)
 
+<<<<<<< Updated upstream
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+=======
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_400dl")
+speed_scale = 0.0
+>>>>>>> Stashed changes
