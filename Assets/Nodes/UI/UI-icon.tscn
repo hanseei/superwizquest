@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://bcsow3affqx1j"]
+
+[ext_resource type="Texture2D" uid="uid://bhwg7tu0af0fq" path="res://Assets/Images/UI-elements/UI-icons.png" id="1_4awtp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0ll4"]
+atlas = ExtResource("1_4awtp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1vv8"]
+atlas = ExtResource("1_4awtp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoa4e"]
+atlas = ExtResource("1_4awtp")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2oue"]
+atlas = ExtResource("1_4awtp")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0gyh"]
+atlas = ExtResource("1_4awtp")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abhi1"]
+atlas = ExtResource("1_4awtp")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juyiu"]
+atlas = ExtResource("1_4awtp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r60vr"]
+atlas = ExtResource("1_4awtp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rrl52"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0ll4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1vv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yoa4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2oue")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0gyh")
+}],
+"loop": true,
+"name": &"earth",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abhi1")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juyiu")
+}],
+"loop": true,
+"name": &"water",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r60vr")
+}],
+"loop": true,
+"name": &"wind",
+"speed": 5.0
+}]
+
+[node name="Ui-icon" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_rrl52")
