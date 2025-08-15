@@ -364,7 +364,7 @@ drag_left_margin = 0.5
 drag_right_margin = 0.53
 
 [node name="BasicEnemy" parent="." instance=ExtResource("12_quyxq")]
-position = Vector2(-131, 531)
+position = Vector2(-129, 570)
 collision_mask = 23
 
 [node name="Killzone" type="Area2D" parent="."]

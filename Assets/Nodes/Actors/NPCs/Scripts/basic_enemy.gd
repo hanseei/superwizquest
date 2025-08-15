@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var moving_left = true
-var movment_speed = 200
+var movment_speed = 100
 var jump_velocity = 0
 var wind_speed = 0
 const Gravity = 10
