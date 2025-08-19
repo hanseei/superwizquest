@@ -6,16 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://cwbjkioh2y6bw" path="res://Assets/Nodes/Actors/Interactables/torch.tscn" id="4_vwov1"]
 [ext_resource type="PackedScene" uid="uid://c2sylo50eqnp0" path="res://Assets/Nodes/Actors/Interactables/toggletest.tscn" id="5_57x3k"]
 [ext_resource type="PackedScene" uid="uid://blc2megwvlwmr" path="res://Assets/Nodes/Actors/Interactables/bucket.tscn" id="6_l42a0"]
-[ext_resource type="PackedScene" uid="uid://cbdaebxn04oax" path="res://Assets/Nodes/Actors/Interactables/Stone.tscn" id="7_5tspq"]
+[ext_resource type="PackedScene" uid="uid://cbdaebxn04oax" path="res://Assets/Nodes/Actors/Interactables/stone.tscn" id="7_5tspq"]
 [ext_resource type="PackedScene" uid="uid://b22d3disdyijl" path="res://Assets/Nodes/Actors/Interactables/door.tscn" id="8_hgiis"]
 [ext_resource type="PackedScene" uid="uid://bvc5bj0go1alw" path="res://Assets/Nodes/Actors/Interactables/movingPlatform.tscn" id="8_nj415"]
 [ext_resource type="PackedScene" uid="uid://bovilvnyemh8r" path="res://Assets/Nodes/Actors/Interactables/stone_bucket.tscn" id="10_qe2em"]
 [ext_resource type="PackedScene" uid="uid://mmnaokb7xxf0" path="res://Assets/Nodes/Actors/Interactables/movablePlatform.tscn" id="11_qe2em"]
 [ext_resource type="PackedScene" uid="uid://dp1slpa606d67" path="res://Assets/Nodes/Actors/NPCs/basic_enemy.tscn" id="12_quyxq"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kuskl"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_quyxq"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qe2em"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2nbnf"]
 texture = ExtResource("2_nj415")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -420,11 +420,11 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 6
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_kuskl")
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_quyxq")
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/2 = SubResource("TileSetAtlasSource_qe2em")
+sources/2 = SubResource("TileSetAtlasSource_2nbnf")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwov1"]
 size = Vector2(7717, 43)
@@ -455,7 +455,7 @@ position = Vector2(811, 236)
 position = Vector2(-222.611, 470.942)
 
 [node name="Player" parent="." instance=ExtResource("2_kuskl")]
-position = Vector2(129, 502)
+position = Vector2(1564, 584)
 collision_mask = 17
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -503,12 +503,6 @@ triggerObjectArray = [NodePath("../Bucket")]
 [node name="Path2D" parent="Door2" index="0"]
 curve = SubResource("Curve2D_quyxq")
 
-[node name="DoorTile" parent="Door2/Path2D/PathFollow2D" index="0"]
-tile_map_data = PackedByteArray("AAD+////AAAAAAMAAAD/////AAACAAMAAAD//wAAAAACAAQAAAD+/wAAAAAAAAQAAAA=")
-
-[node name="DoorwayTile" parent="Door2" index="1"]
-visible = false
-
 [node name="Door3" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("8_hgiis")]
 position = Vector2(3552, 528)
 triggerObjectArray = [NodePath("../Stone bucket")]
@@ -532,5 +526,4 @@ pathNodes = Array[Vector2]([Vector2(0, 0), Vector2(128, 0)])
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 
-[editable path="Player"]
 [editable path="Door2"]
