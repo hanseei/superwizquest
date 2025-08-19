@@ -349,8 +349,11 @@ tile_map_data = PackedByteArray("AAD///7/AgACAAEAAAD/////AgADAAEAAAAAAP//AgABAAA
 tile_set = SubResource("TileSet_hjgtx")
 use_kinematic_bodies = true
 
-[node name="SpawnPointPlayer" type="Node2D" parent="."]
-position = Vector2(129, 376)
+[node name="SpawnPointPlayer1" type="Node2D" parent="."]
+position = Vector2(32, 337)
+
+[node name="SpawnPointPlayer2" type="Node2D" parent="."]
+position = Vector2(811, 236)
 
 [node name="SpawnPointFrog" type="Node2D" parent="."]
 position = Vector2(-222.611, 470.942)
@@ -394,7 +397,7 @@ pathNodes = Array[Vector2]([Vector2(0, 0), Vector2(-96, 0), Vector2(-96, 128), V
 
 [node name="Door" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("8_hgiis")]
 position = Vector2(1729, 625)
-triggerObjectArray = [NodePath("../torch")]
+triggerObjectArray = [NodePath("../torch1")]
 
 [node name="Door2" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("8_hgiis")]
 position = Vector2(2370, 624)
@@ -412,9 +415,9 @@ position = Vector2(3377, 387)
 
 [node name="Toggletest" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("5_57x3k")]
 position = Vector2(654, 534)
-triggerObjectArray = [NodePath("../torch")]
+triggerObjectArray = [NodePath("../torch1")]
 
-[node name="torch" parent="." instance=ExtResource("4_vwov1")]
+[node name="torch1" parent="." instance=ExtResource("4_vwov1")]
 position = Vector2(1696, 602)
 
 [node name="MovablePlatform" parent="." instance=ExtResource("11_qe2em")]

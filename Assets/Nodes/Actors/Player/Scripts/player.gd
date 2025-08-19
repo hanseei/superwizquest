@@ -3,7 +3,6 @@ extends CharacterBody2D
 const Gravity = 10
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
-@export var spawn_point_node: NodePath
 
 @export var worldTileOffset = 0
 
@@ -12,7 +11,6 @@ var wind_speed = 0
 var wind_active = false
 
 
-@onready var spawn_point = get_node("/root/TestStage/SpawnPointPlayer")
 
 const fire = preload("res://Assets/Nodes/Actors/Player/fire.tscn")
 const water = preload("res://Assets/Nodes/Actors/Player/water.tscn")
@@ -31,9 +29,7 @@ var down_key = false
 func _ready():
 	
 	$"Ui-canvas/Ui-icon/AnimatedSprite2D".animation = current_element
-	if has_node(spawn_point_node):
-		spawn_point = get_node(spawn_point_node).global_position
-		
+
 
 func _physics_process(delta: float):
 	
@@ -183,6 +179,7 @@ func shoot_element():
 		"wind": cast_wind()
 
 func respawn():
+	Gamecontroller.update_spawn()
 	print("Respawning player...")
-	global_position = spawn_point.global_position
+	global_position = Gamecontroller.spawn_point.global_position
 	velocity = Vector2.ZERO
