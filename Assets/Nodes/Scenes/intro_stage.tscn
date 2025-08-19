@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://b4gboo1yqscs7"]
+[gd_scene load_steps=10 format=4 uid="uid://cus2m3qy6kiw"]
 
-[ext_resource type="TileSet" uid="uid://cjm46ebo2h5xd" path="res://Assets/TilesetResources/groundTiles.tres" id="1_i6xnk"]
+[ext_resource type="TileSet" uid="uid://b0v4a7l6w4wsg" path="res://Assets/TilesetResources/groundTiles.tres" id="1_i6xnk"]
 [ext_resource type="PackedScene" uid="uid://clnon8w5k6rob" path="res://Assets/Nodes/Actors/Player/player.tscn" id="2_jrk3c"]
 [ext_resource type="Script" uid="uid://c3bmiiwme5v7i" path="res://Assets/Nodes/Actors/Interactables/Scripts/killzone.gd" id="3_jrk3c"]
 [ext_resource type="PackedScene" uid="uid://cwbjkioh2y6bw" path="res://Assets/Nodes/Actors/Interactables/torch.tscn" id="4_fnggt"]
