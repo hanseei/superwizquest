@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://clnon8w5k6rob"]
+[gd_scene load_steps=11 format=3 uid="uid://clnon8w5k6rob"]
 
 [ext_resource type="Script" uid="uid://cr0v4yndcrjtr" path="res://Assets/Nodes/Actors/Player/Scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://l34rjwen4gir" path="res://Assets/Images/Spritesheets/wizard.png" id="2_6x2t2"]
@@ -12,6 +12,18 @@ size = Vector2(26, 104)
 atlas = ExtResource("2_6x2t2")
 region = Rect2(0, 0, 32, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_x72o3"]
+atlas = ExtResource("2_6x2t2")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj3hr"]
+atlas = ExtResource("2_6x2t2")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noov7"]
+atlas = ExtResource("2_6x2t2")
+region = Rect2(96, 0, 32, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_dd465"]
 animations = [{
 "frames": [],
@@ -22,6 +34,15 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r4ruf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x72o3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj3hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noov7")
 }],
 "loop": true,
 "name": &"walk",
@@ -43,6 +64,9 @@ texture_filter = 1
 scale = Vector2(1.0625, 1.0625)
 sprite_frames = SubResource("SpriteFrames_dd465")
 animation = &"walk"
+autoplay = "walk"
+frame = 2
+frame_progress = 0.302204
 
 [node name="Wind" parent="." instance=ExtResource("3_6x2t2")]
 
