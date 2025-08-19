@@ -1,16 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b22d3disdyijl"]
+[gd_scene load_steps=4 format=3 uid="uid://b22d3disdyijl"]
 
 [ext_resource type="Script" uid="uid://dvjosyk5as1l6" path="res://Assets/Nodes/Actors/Interactables/Scripts/door.gd" id="1_hm3cw"]
-[ext_resource type="Texture2D" uid="uid://dvf3leyf8ljbh" path="res://Assets/Images/Tilesets/grassMid.png" id="2_wb4qn"]
+[ext_resource type="TileSet" uid="uid://cewfjc1r88tdv" path="res://Assets/TilesetResources/door.tres" id="3_06wa3"]
 
 [sub_resource type="Curve2D" id="Curve2D_06wa3"]
+resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -64)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b60xa"]
-size = Vector2(64, 128)
 
 [node name="Door" type="Area2D"]
 collision_layer = 0
@@ -25,22 +23,15 @@ rotates = false
 cubic_interp = false
 loop = false
 
-[node name="RigidBody2D" type="RigidBody2D" parent="Path2D/PathFollow2D"]
+[node name="DoorTile" type="TileMapLayer" parent="Path2D/PathFollow2D"]
+z_index = -1
 texture_filter = 1
-collision_layer = 16
-collision_mask = 0
-lock_rotation = true
-freeze = true
+position = Vector2(0, 64)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 254, 255, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0)
+tile_set = ExtResource("3_06wa3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/RigidBody2D"]
+[node name="DoorwayTile" type="TileMapLayer" parent="."]
 texture_filter = 1
-position = Vector2(16, -32)
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_b60xa")
-
-[node name="GrassMid" type="Sprite2D" parent="Path2D/PathFollow2D"]
-texture_filter = 1
-position = Vector2(16, -32)
-rotation = -1.5708
-scale = Vector2(0.914, 0.457)
-texture = ExtResource("2_wb4qn")
+position = Vector2(0, 64)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 2, 0, 0, 0, 0, 0)
+tile_set = ExtResource("3_06wa3")

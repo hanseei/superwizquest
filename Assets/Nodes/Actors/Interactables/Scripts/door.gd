@@ -1,12 +1,20 @@
 extends ObjectTrigger
 
-@export var targetPos: Vector2 = Vector2(0,-64)
+@export var wantedPos: Vector2
+var targetPos: Vector2
+
 var open: bool = false
 
 
 func _ready():
 	super._ready()
-	$Path2D.get_curve().set_point_position(1,targetPos)
+	targetPos = Vector2(0,96)
+	if (wantedPos): 
+		$Path2D.get_curve().set_point_position(1,wantedPos)
+		print("AAAH")
+	else:
+		print("Oh")
+		$Path2D.get_curve().set_point_position(1,targetPos)
 	triggered.connect(_opens)
 	detriggered.connect(_closes)
 	
