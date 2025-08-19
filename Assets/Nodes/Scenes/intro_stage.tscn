@@ -374,7 +374,7 @@ shape = SubResource("RectangleShape2D_ktxyu")
 position = Vector2(298, 300)
 
 [node name="Door1" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("5_qj1rm")]
-position = Vector2(349, 336)
+position = Vector2(321, 240)
 triggerObjectArray = [NodePath("../torch1")]
 
 [node name="torch2" parent="." instance=ExtResource("4_fnggt")]
@@ -382,7 +382,7 @@ position = Vector2(735, 299)
 state = true
 
 [node name="Door2" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("5_qj1rm")]
-position = Vector2(770, 401)
+position = Vector2(768, 240)
 logic = 3
 triggerObjectArray = [NodePath("../torch2")]
 
@@ -390,7 +390,7 @@ triggerObjectArray = [NodePath("../torch2")]
 position = Vector2(1107, 329)
 
 [node name="Door3" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("5_qj1rm")]
-position = Vector2(1120, 336)
+position = Vector2(1120, 240)
 triggerObjectArray = [NodePath("../Bucket1")]
 
 [node name="Stone1" parent="." instance=ExtResource("7_tq22p")]

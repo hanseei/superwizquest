@@ -2,7 +2,7 @@ extends Area2D
 
 class_name Interactable
 
-@export var state = false
+@export var state: bool
 var activateGroups: Array[String]
 var deactivateGroups: Array[String]
 
@@ -12,6 +12,9 @@ signal activated
 func _ready():
 	area_entered.connect(_on_area_entered)
 	body_entered.connect(_on_body_entered)
+	if (state): 
+		state = false
+		activateTrigger()
 	
 
 #	If hit with a firebolt, check if already lit, if not, light and emit 'lit' signal.

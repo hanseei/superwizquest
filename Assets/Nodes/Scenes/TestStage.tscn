@@ -391,7 +391,7 @@ position = Vector2(811, 236)
 position = Vector2(-222.611, 470.942)
 
 [node name="Player" parent="." instance=ExtResource("2_kuskl")]
-position = Vector2(129, 502)
+position = Vector2(1564, 584)
 collision_mask = 17
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -439,12 +439,6 @@ triggerObjectArray = [NodePath("../Bucket")]
 [node name="Path2D" parent="Door2" index="0"]
 curve = SubResource("Curve2D_quyxq")
 
-[node name="DoorTile" parent="Door2/Path2D/PathFollow2D" index="0"]
-tile_map_data = PackedByteArray("AAD+////AAAAAAMAAAD/////AAACAAMAAAD//wAAAAACAAQAAAD+/wAAAAAAAAQAAAA=")
-
-[node name="DoorwayTile" parent="Door2" index="1"]
-visible = false
-
 [node name="Door3" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("8_hgiis")]
 position = Vector2(3552, 528)
 triggerObjectArray = [NodePath("../Stone bucket")]
@@ -468,5 +462,4 @@ pathNodes = Array[Vector2]([Vector2(0, 0), Vector2(128, 0)])
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 
-[editable path="Player"]
 [editable path="Door2"]
