@@ -2,7 +2,7 @@ extends Area2D
 
 class_name Interactable
 
-var state = false
+@export var state = false
 var activateGroups: Array[String]
 var deactivateGroups: Array[String]
 
