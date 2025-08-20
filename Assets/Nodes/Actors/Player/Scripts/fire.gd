@@ -23,10 +23,9 @@ func setAnimDirection(facing_left: bool):
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is TileMapLayer:
+	if body is TileMapLayer || !body.is_in_group("mob"):
 		queue_free()
 	else:
-		print("fireball triggered by:", body)
 		if body.has_method("respawn"):
 			print("Calling respawn() on:", body.name)
 			body.respawn()

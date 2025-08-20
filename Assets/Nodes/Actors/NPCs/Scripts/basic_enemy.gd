@@ -54,6 +54,7 @@ func respawn():
 	
 func wet():
 	if soaking == false:
+		print("wet frog")
 		soaking = true
 		var base_speed = movment_speed
 		print(movment_speed)

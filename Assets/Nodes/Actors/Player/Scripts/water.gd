@@ -24,7 +24,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is TileMapLayer:
+	if body is TileMapLayer || !body.is_in_group("mob"):
 		queue_free()
 	else:
 		if body.has_method("wet"):
