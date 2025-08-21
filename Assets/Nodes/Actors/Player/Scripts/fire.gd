@@ -18,8 +18,7 @@ func _on_Area2D_body_entered(body):
 	
 #	A function called from player to determine which way the fireball sprite should face
 func setAnimDirection(facing_left: bool):
-	match facing_left:
-		false: $AnimatedSprite2D.flip_h = true
+	$AnimatedSprite2D.flip_h = facing_left
 
 
 func _on_body_entered(body: Node2D) -> void:
