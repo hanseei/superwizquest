@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c3r0hkeg8sqy1" path="res://Assets/Nodes/Actors/Interactables/Scripts/platform.gd" id="2_nsyy1"]
 
 [sub_resource type="Curve2D" id="Curve2D_x876p"]
+resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsyy1"]
 size = Vector2(96, 32)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c7g3qysr2s8mq"]
+[gd_scene load_steps=16 format=4 uid="uid://c7g3qysr2s8mq"]
 
 [ext_resource type="TileSet" uid="uid://b0v4a7l6w4wsg" path="res://Assets/TilesetResources/groundTiles.tres" id="1_quyxq"]
 [ext_resource type="PackedScene" uid="uid://clnon8w5k6rob" path="res://Assets/Nodes/Actors/Player/player.tscn" id="2_kuskl"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bovilvnyemh8r" path="res://Assets/Nodes/Actors/Interactables/stone_bucket.tscn" id="10_qe2em"]
 [ext_resource type="PackedScene" uid="uid://mmnaokb7xxf0" path="res://Assets/Nodes/Actors/Interactables/movablePlatform.tscn" id="11_qe2em"]
 [ext_resource type="PackedScene" uid="uid://dp1slpa606d67" path="res://Assets/Nodes/Actors/NPCs/basic_enemy.tscn" id="12_quyxq"]
+[ext_resource type="PackedScene" uid="uid://ccn3lqdhupwiq" path="res://Assets/Nodes/Actors/Interactables/plantPlatform.tscn" id="13_2nbnf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwov1"]
 size = Vector2(7717, 43)
@@ -136,6 +137,10 @@ position = Vector2(1297, -472)
 [node name="MovingPlatform2" parent="." instance=ExtResource("8_nj415")]
 position = Vector2(1248, -464)
 pathNodes = Array[Vector2]([Vector2(0, 0), Vector2(0, 80)])
+
+[node name="Plantform" parent="." instance=ExtResource("13_2nbnf")]
+position = Vector2(897, -464)
+scale = Vector2(-1, 1)
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 
