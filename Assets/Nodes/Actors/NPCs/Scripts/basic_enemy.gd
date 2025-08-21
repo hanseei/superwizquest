@@ -8,7 +8,7 @@ var movment_speed = 100
 var jump_velocity = 0
 var wind_speed = 0
 var direction = -1
-var soaking  = false
+var soaking = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
