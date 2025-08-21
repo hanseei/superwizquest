@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://6mxidt6ybqhf"]
 
-[ext_resource type="Texture2D" uid="uid://dvf3leyf8ljbh" path="res://Assets/Images/Tilesets/grassMid.png" id="1_om26h"]
 [ext_resource type="Script" uid="uid://b7vx6x5w7qpgg" path="res://Assets/Nodes/Actors/Player/Scripts/earth.gd" id="1_qbwya"]
+[ext_resource type="Texture2D" uid="uid://dpmdo8eyua5ck" path="res://Assets/Images/Spritesheets/Stone platform.png" id="2_42quw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7wcun"]
 size = Vector2(70, 70)
 
 [node name="StaticBody2D" type="StaticBody2D" groups=["earth-ignore"]]
+z_index = -1
 collision_layer = 16
 collision_mask = 31
 script = ExtResource("1_qbwya")
@@ -19,5 +20,4 @@ shape = SubResource("RectangleShape2D_7wcun")
 [node name="GrassMid" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(15.75, 15.75)
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("1_om26h")
+texture = ExtResource("2_42quw")
