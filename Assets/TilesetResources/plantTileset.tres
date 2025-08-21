@@ -1,0 +1,29 @@
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://detiiabfx6qhj"]
+
+[ext_resource type="Texture2D" uid="uid://dgewwf13o8nhn" path="res://Assets/Images/Spritesheets/platform-plant-spritesheet.png" id="1_7y3cr"]
+[ext_resource type="PhysicsMaterial" uid="uid://6kirkwtt3lsy" path="res://Assets/TilesetResources/plantPhysics.tres" id="1_ut3kl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ut3kl"]
+texture = ExtResource("1_7y3cr")
+texture_region_size = Vector2i(32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 16, 8, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 8, 16, 8, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 8, 16, 8, 16, 8, -16, 16)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 4, -16, 4, 16, -16, 16, -16, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 16, 8, -8, 16, -16, 16)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 16, 0, 16, 12, 12, 16, -16, 16, -16, 16, -16, -16, 4, -16)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -12, 8, -12, 16, 8, 4, 16, -16, 16, -16, 16, -16, 4)
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 14
+physics_layer_0/physics_material = ExtResource("1_ut3kl")
+sources/0 = SubResource("TileSetAtlasSource_ut3kl")
