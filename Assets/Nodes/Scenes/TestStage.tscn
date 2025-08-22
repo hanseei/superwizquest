@@ -139,7 +139,7 @@ position = Vector2(241, -673)
 
 [node name="StoneTrigger2" parent="." instance=ExtResource("10_qe2em")]
 z_index = -1
-position = Vector2(464, -623)
+position = Vector2(464, -640)
 
 [node name="Plantform" type="Area2D" parent="."]
 position = Vector2(1311, -463)

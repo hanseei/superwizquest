@@ -1,10 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://bovilvnyemh8r"]
+[gd_scene load_steps=7 format=3 uid="uid://bovilvnyemh8r"]
 
 [ext_resource type="Script" uid="uid://djeyk06gu1cxi" path="res://Assets/Nodes/Actors/Interactables/Scripts/stone_bucket.gd" id="1_qjntg"]
-[ext_resource type="Texture2D" uid="uid://dvf3leyf8ljbh" path="res://Assets/Images/Tilesets/grassMid.png" id="2_qjntg"]
+[ext_resource type="Texture2D" uid="uid://d3ql848uf2nkp" path="res://Assets/Images/Spritesheets/stonebucket.png" id="3_d5cef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amg01"]
-size = Vector2(62, 63)
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amg01"]
+atlas = ExtResource("3_d5cef")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rotqh"]
+atlas = ExtResource("3_d5cef")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7mfe5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amg01")
+}],
+"loop": false,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rotqh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="StoneTrigger" type="Area2D"]
 collision_layer = 8
@@ -12,21 +39,9 @@ collision_mask = 8
 script = ExtResource("1_qjntg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_amg01")
 
-[node name="GrassMid" type="Sprite2D" parent="."]
-position = Vector2(-31, 0)
-scale = Vector2(0.03, 0.9)
-texture = ExtResource("2_qjntg")
-
-[node name="GrassMid2" type="Sprite2D" parent="."]
-position = Vector2(31, 0)
-scale = Vector2(0.03, 0.9)
-texture = ExtResource("2_qjntg")
-
-[node name="GrassMid3" type="Sprite2D" parent="."]
-position = Vector2(0.002, 31)
-rotation = 1.5708
-scale = Vector2(0.03, 0.9)
-texture = ExtResource("2_qjntg")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_7mfe5")
+autoplay = "default"
