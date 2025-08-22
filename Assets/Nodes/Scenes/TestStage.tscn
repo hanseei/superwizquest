@@ -43,7 +43,7 @@ position = Vector2(811, 236)
 position = Vector2(-222.611, 470.942)
 
 [node name="Player" parent="." instance=ExtResource("2_kuskl")]
-position = Vector2(1841, -503)
+position = Vector2(1173, -497)
 collision_mask = 17
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -131,27 +131,21 @@ position = Vector2(241, -673)
 z_index = -1
 position = Vector2(464, -623)
 
-[node name="Bucket2" parent="." instance=ExtResource("6_l42a0")]
-position = Vector2(1297, -472)
-
-[node name="MovingPlatform2" parent="." instance=ExtResource("8_nj415")]
-position = Vector2(1248, -464)
-pathNodes = Array[Vector2]([Vector2(0, 0), Vector2(0, 80)])
-
 [node name="Plantform" parent="." instance=ExtResource("13_2nbnf")]
-position = Vector2(897, -464)
-scale = Vector2(-1, 1)
+position = Vector2(1311, -463)
 
 [node name="Bucket3" parent="." instance=ExtResource("6_l42a0")]
 position = Vector2(2032, -535)
 
 [node name="Door6" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("8_hgiis")]
+z_index = -1
 position = Vector2(2272, -720)
 rotation = 1.5708
 logic = 3
 triggerObjectArray = [NodePath("../torch3")]
 
 [node name="Door7" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("8_hgiis")]
+z_index = -1
 position = Vector2(1760, -624)
 rotation = -1.5708
 triggerObjectArray = [NodePath("../Bucket3")]

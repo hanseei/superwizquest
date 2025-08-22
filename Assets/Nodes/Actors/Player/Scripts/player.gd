@@ -77,12 +77,16 @@ func _input(event):
 		
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("shift"):
+	if event.is_action_pressed("E"):
 		current_element_index = (current_element_index + 1) % elements.size()
 		current_element = elements[current_element_index]
 		$"Ui-canvas/Ui-icon/AnimatedSprite2D".animation = current_element
 		print("Switched to:", current_element)
-		
+	if event.is_action_pressed("Q"):
+		current_element_index = (current_element_index - 1) % elements.size()
+		current_element = elements[current_element_index]
+		$"Ui-canvas/Ui-icon/AnimatedSprite2D".animation = current_element
+		print("Switched to:", current_element)
 
 
 func shoot_single(scene: PackedScene):
