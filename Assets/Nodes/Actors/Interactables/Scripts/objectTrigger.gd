@@ -2,7 +2,7 @@ extends Node2D
 
 class_name ObjectTrigger
 
-enum LOGIC {AND, OR, NAND, NOR}
+enum LOGIC {AND, OR, NAND, NOR, XOR, XNOR}
 
 @export var logic: LOGIC = LOGIC.AND
 @export var triggerObjectArray: Array[Area2D]
@@ -39,6 +39,17 @@ func _ready():
 					triggerObject.deactivated.connect(_norFunc.bind(false))
 				lit = true
 				_light()
+			LOGIC.XOR:
+				for triggerObject in triggerObjectArray:
+					triggerObject.activated.connect(_xorFunc.bind(true))
+					triggerObject.deactivated.connect(_xorFunc.bind(false))
+			LOGIC.XNOR:
+				for triggerObject in triggerObjectArray:
+					triggerObject.activated.connect(_xnorFunc.bind(true))
+					triggerObject.deactivated.connect(_xnorFunc.bind(false))
+				lit = true
+				_light()
+
 
 # Ups and downs the counter, toggles lit if all torches are lit
 func _andFunc(activated: bool):
@@ -59,6 +70,14 @@ func _nandFunc(activated: bool):
 func _norFunc(activated: bool):
 	_increment(activated)
 	_logicCheck(counter == 0)
+	
+func _xorFunc(activated: bool):
+	_increment(activated)
+	_logicCheck(counter != 0 && counter != maxAmnt)
+	
+func _xnorFunc(activated: bool):
+	_increment(activated)
+	_logicCheck(counter == 0 || counter == maxAmnt)
 	
 func _increment(activated: bool):
 	if (activated):

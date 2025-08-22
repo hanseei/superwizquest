@@ -78,6 +78,6 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nkwac")
 animation = &"fire_right"
 autoplay = "fire_right"
-frame_progress = 0.0471749
+frame_progress = 0.821068
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
