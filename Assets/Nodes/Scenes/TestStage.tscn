@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c7g3qysr2s8mq"]
+[gd_scene load_steps=19 format=4 uid="uid://c7g3qysr2s8mq"]
 
 [ext_resource type="TileSet" uid="uid://b0v4a7l6w4wsg" path="res://Assets/TilesetResources/groundTiles.tres" id="1_quyxq"]
 [ext_resource type="PackedScene" uid="uid://clnon8w5k6rob" path="res://Assets/Nodes/Actors/Player/player.tscn" id="2_kuskl"]
@@ -12,7 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bovilvnyemh8r" path="res://Assets/Nodes/Actors/Interactables/stone_bucket.tscn" id="10_qe2em"]
 [ext_resource type="PackedScene" uid="uid://mmnaokb7xxf0" path="res://Assets/Nodes/Actors/Interactables/movablePlatform.tscn" id="11_qe2em"]
 [ext_resource type="PackedScene" uid="uid://dp1slpa606d67" path="res://Assets/Nodes/Actors/NPCs/basic_enemy.tscn" id="12_quyxq"]
-[ext_resource type="PackedScene" uid="uid://ccn3lqdhupwiq" path="res://Assets/Nodes/Actors/Interactables/plantPlatform.tscn" id="13_2nbnf"]
+[ext_resource type="Script" path="res://Assets/Nodes/Actors/Interactables/Scripts/platformPlant.gd" id="13_5wxih"]
+[ext_resource type="TileSet" uid="uid://detiiabfx6qhj" path="res://Assets/TilesetResources/plantTileset.tres" id="14_0r6y0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwov1"]
 size = Vector2(7717, 43)
@@ -23,6 +24,15 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_vap1g"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -395)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vap1g"]
+size = Vector2(34, 417)
 
 [node name="TestStage" type="Node2D"]
 
@@ -43,7 +53,7 @@ position = Vector2(811, 236)
 position = Vector2(-222.611, 470.942)
 
 [node name="Player" parent="." instance=ExtResource("2_kuskl")]
-position = Vector2(1173, -497)
+position = Vector2(277, -505)
 collision_mask = 17
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -114,10 +124,11 @@ pathNodes = Array[Vector2]([Vector2(0, 0), Vector2(128, 0)])
 
 [node name="Door4" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("8_hgiis")]
 position = Vector2(448, -560)
-triggerObjectArray = [NodePath("../StoneTrigger2")]
+logic = 2
+triggerObjectArray = [NodePath("../torch5"), NodePath("../StoneTrigger2")]
 
 [node name="torch5" parent="." instance=ExtResource("4_vwov1")]
-position = Vector2(394, -506)
+position = Vector2(400, -491)
 
 [node name="Door5" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("8_hgiis")]
 z_index = -1
@@ -131,8 +142,33 @@ position = Vector2(241, -673)
 z_index = -1
 position = Vector2(464, -623)
 
-[node name="Plantform" parent="." instance=ExtResource("13_2nbnf")]
+[node name="Plantform" type="Area2D" parent="."]
 position = Vector2(1311, -463)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("13_5wxih")
+
+[node name="BasePlant" type="TileMapLayer" parent="Plantform"]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAP//AAADAAIAAAAAAP7/AAADAAEAAAAAAP3/AAADAAEAAAAAAPz/AAADAAEAAAAAAPv/AAADAAEAAAAAAPr/AAADAAEAAAAAAPn/AAADAAEAAAAAAPj/AAADAAEAAAAAAPf/AAADAAEAAAAAAPb/AAADAAEAAAAAAPX/AAADAAEAAAAAAPT/AAADAAEAAAAAAPP/AAADAAAAAAA=")
+tile_set = ExtResource("14_0r6y0")
+rendering_quadrant_size = 32
+
+[node name="Path2D" type="Path2D" parent="Plantform"]
+curve = SubResource("Curve2D_vap1g")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Plantform/Path2D"]
+rotation = -1.5708
+loop = false
+
+[node name="Platform" type="TileMapLayer" parent="Plantform/Path2D/PathFollow2D"]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAP//AAACAAEAAFAAAP7/AAAAAAEAAFA=")
+tile_set = ExtResource("14_0r6y0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plantform"]
+position = Vector2(16, -208.5)
+shape = SubResource("RectangleShape2D_vap1g")
 
 [node name="Bucket3" parent="." instance=ExtResource("6_l42a0")]
 position = Vector2(2032, -535)

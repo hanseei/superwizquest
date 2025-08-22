@@ -11,9 +11,7 @@ func _ready():
 	targetPos = Vector2(0,96)
 	if (wantedPos): 
 		$Path2D.get_curve().set_point_position(1,wantedPos)
-		print("AAAH")
 	else:
-		print("Oh")
 		$Path2D.get_curve().set_point_position(1,targetPos)
 	triggered.connect(_opens)
 	detriggered.connect(_closes)

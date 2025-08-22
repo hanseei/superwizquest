@@ -5,12 +5,12 @@
 
 [sub_resource type="Curve2D" id="Curve2D_vap1g"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -96)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -395)
 }
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vap1g"]
-size = Vector2(34, 126)
+size = Vector2(34, 417)
 
 [node name="Plantform" type="Area2D"]
 collision_layer = 0
