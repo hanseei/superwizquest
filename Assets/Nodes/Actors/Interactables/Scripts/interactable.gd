@@ -11,7 +11,9 @@ signal activated
 
 func _ready():
 	area_entered.connect(_on_area_entered)
+	
 	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
 	if (state): 
 		state = false
 		activateTrigger()
@@ -46,6 +48,12 @@ func _on_body_entered(body: Node):
 			activateTrigger()
 			return
 	for group in deactivateGroups:
+		if (body.is_in_group(group)):
+			deactivateTrigger()
+			return
+
+func _on_body_exited(body: Node):
+	for group in activateGroups:
 		if (body.is_in_group(group)):
 			deactivateTrigger()
 			return
