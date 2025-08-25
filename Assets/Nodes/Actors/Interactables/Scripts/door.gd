@@ -3,7 +3,7 @@ extends ObjectTrigger
 @export var wantedPos: Vector2
 var targetPos: Vector2
 
-var open: bool = false
+@export var open: bool = false
 
 
 func _ready():

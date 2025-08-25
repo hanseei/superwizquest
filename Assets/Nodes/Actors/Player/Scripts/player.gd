@@ -99,7 +99,7 @@ func shoot_single(scene: PackedScene):
 	get_tree().current_scene.add_child(shot)
 
 func shoot_water_burst(scene: PackedScene):
-	var launch_angle = deg_to_rad(30)       
+	var launch_angle = deg_to_rad(25)       
 	var direction = Vector2(cos(launch_angle), -sin(launch_angle))
 
 	# Flip direction if facing left
