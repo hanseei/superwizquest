@@ -1,23 +1,23 @@
 [gd_scene load_steps=9 format=3 uid="uid://blc2megwvlwmr"]
 
 [ext_resource type="Script" uid="uid://dg20qt4kd2uv7" path="res://Assets/Nodes/Actors/Interactables/Scripts/bucket.gd" id="1_5k4of"]
-[ext_resource type="Texture2D" uid="uid://vq05omq2yufl" path="res://Assets/Images/Spritesheets/bucket_spritesheet.png" id="2_mem0o"]
+[ext_resource type="Texture2D" uid="uid://lcatw01vd6d7" path="res://Assets/Images/Spritesheets/bucket_sprite.png" id="2_mem0o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q68r7"]
 atlas = ExtResource("2_mem0o")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1n7ve"]
 atlas = ExtResource("2_mem0o")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3iqs2"]
 atlas = ExtResource("2_mem0o")
-region = Rect2(32, 0, 16, 16)
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w13o3"]
 atlas = ExtResource("2_mem0o")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vamak"]
 animations = [{
@@ -45,7 +45,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47r7i"]
-size = Vector2(14, 11)
+size = Vector2(28, 23)
 
 [node name="Bucket" type="Area2D" groups=["earth-ignore"]]
 collision_layer = 8
@@ -55,10 +55,11 @@ script = ExtResource("1_5k4of")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vamak")
+animation = &"fill"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_47r7i")
 
 [connection signal="activated" from="." to="." method="_on_bucket_activated"]
