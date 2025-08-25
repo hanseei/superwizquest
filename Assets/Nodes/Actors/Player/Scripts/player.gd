@@ -29,6 +29,7 @@ var down_key = false
 func _ready():
 	
 	$"Ui-canvas/Ui-icon/AnimatedSprite2D".animation = current_element
+	$AnimatedSprite2D.animation = current_element + "_walk"
 
 
 func _physics_process(delta: float):
@@ -62,17 +63,17 @@ func _input(event):
 		
 	if event.is_action_pressed("move_up"):
 		up_key = true
-		print("up pressed")
+		#print("up pressed")
 	if event.is_action_released("move_up"):
 		up_key = false
-		print("up released")
+		#print("up released")
 		
 	if event.is_action_pressed("move_down"):
 		down_key = true
-		print("down pressed")
+		#print("down pressed")
 	if event.is_action_released("move_down"):
 		down_key = false
-		print("down released")
+		#print("down released")
 		print(Gamecontroller.wind_timer)
 		
 
@@ -81,12 +82,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		current_element_index = (current_element_index + 1) % elements.size()
 		current_element = elements[current_element_index]
 		$"Ui-canvas/Ui-icon/AnimatedSprite2D".animation = current_element
-		print("Switched to:", current_element)
+		#print("Switched to:", current_element)
 	if event.is_action_pressed("Q"):
 		current_element_index = (current_element_index - 1) % elements.size()
 		current_element = elements[current_element_index]
 		$"Ui-canvas/Ui-icon/AnimatedSprite2D".animation = current_element
-		print("Switched to:", current_element)
+		#print("Switched to:", current_element)
+	$AnimatedSprite2D.animation = current_element + "_walk"
 
 
 func shoot_single(scene: PackedScene):

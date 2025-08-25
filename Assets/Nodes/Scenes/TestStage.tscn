@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c7g3qysr2s8mq"]
+[gd_scene load_steps=20 format=4 uid="uid://c7g3qysr2s8mq"]
 
 [ext_resource type="TileSet" uid="uid://b0v4a7l6w4wsg" path="res://Assets/TilesetResources/groundTiles.tres" id="1_quyxq"]
 [ext_resource type="PackedScene" uid="uid://clnon8w5k6rob" path="res://Assets/Nodes/Actors/Player/player.tscn" id="2_kuskl"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dp1slpa606d67" path="res://Assets/Nodes/Actors/NPCs/basic_enemy.tscn" id="12_quyxq"]
 [ext_resource type="Script" uid="uid://c41eesjcycbuj" path="res://Assets/Nodes/Actors/Interactables/Scripts/platformPlant.gd" id="13_5wxih"]
 [ext_resource type="TileSet" uid="uid://detiiabfx6qhj" path="res://Assets/TilesetResources/plantTileset.tres" id="14_0r6y0"]
+[ext_resource type="PackedScene" uid="uid://cm8y1t7p55oqr" path="res://Assets/Nodes/Actors/Interactables/dialogueTrigger.tscn" id="15_0r6y0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwov1"]
 size = Vector2(7717, 43)
@@ -193,6 +194,9 @@ state = true
 position = Vector2(2176, -912)
 logic = 2
 triggerObjectArray = [NodePath("../Bucket3"), NodePath("../torch3")]
+
+[node name="DialogueTrigger" parent="." instance=ExtResource("15_0r6y0")]
+position = Vector2(188, -492)
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 

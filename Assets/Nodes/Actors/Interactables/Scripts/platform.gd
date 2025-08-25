@@ -7,7 +7,7 @@ extends Area2D
 func _ready():
 	for node in pathNodes:
 		$Path2D.get_curve().add_point(node)
-	print($Path2D.get_curve().point_count)
+	#print($Path2D.get_curve().point_count)
 
 func _process(delta):
 	$Path2D/PathFollow2D.progress_ratio += delta * platformSpeed * 0.01

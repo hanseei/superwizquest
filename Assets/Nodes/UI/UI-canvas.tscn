@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhe32jvxc5xqf"]
+[gd_scene load_steps=5 format=3 uid="uid://dhe32jvxc5xqf"]
 
+[ext_resource type="Script" uid="uid://cl2bsjv547ot3" path="res://Assets/Nodes/UI/ui_main.gd" id="1_jaob1"]
 [ext_resource type="PackedScene" uid="uid://bcsow3affqx1j" path="res://Assets/Nodes/UI/UI-icon.tscn" id="1_qegfr"]
+[ext_resource type="Texture2D" uid="uid://bapnfmij5ivq3" path="res://Assets/Images/UI-elements/textbox.png" id="2_xgnp7"]
+[ext_resource type="Theme" uid="uid://b1th5ki246wl2" path="res://Assets/TilesetResources/UI-Text.tres" id="3_n8rdc"]
 
-[node name="Ui-canvas" type="CanvasLayer"]
+[node name="Ui-canvas" type="CanvasLayer" groups=["UI"]]
+script = ExtResource("1_jaob1")
 
 [node name="Ui-icon" parent="." instance=ExtResource("1_qegfr")]
 anchors_preset = 2
@@ -15,3 +19,51 @@ offset_bottom = -48.0
 grow_horizontal = 1
 grow_vertical = 0
 scale = Vector2(2, 2)
+
+[node name="DialogueBox" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(622, 574)
+texture = ExtResource("2_xgnp7")
+
+[node name="DialogueText" type="RichTextLabel" parent="DialogueBox"]
+z_index = 2
+offset_left = -457.0
+offset_top = -41.0
+offset_right = 457.0
+offset_bottom = 41.0
+theme = ExtResource("3_n8rdc")
+text = "		A/D - Move Left/Right
+
+		W/S - Aim Up/Down (for Wind and Earth)
+"
+
+[node name="TutorialBox" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(622, 574)
+texture = ExtResource("2_xgnp7")
+
+[node name="LeftText" type="RichTextLabel" parent="TutorialBox"]
+z_index = 2
+offset_left = -489.0
+offset_top = -41.0
+offset_right = 495.0
+offset_bottom = 41.0
+theme = ExtResource("3_n8rdc")
+text = "		A/D - Move Left/Right
+
+		W/S - Aim Up/Down (for Wind and Earth)
+"
+
+[node name="RightText" type="RichTextLabel" parent="TutorialBox"]
+z_index = 2
+offset_left = -495.0
+offset_top = -41.0
+offset_right = 489.0
+offset_bottom = 41.0
+theme = ExtResource("3_n8rdc")
+text = "Q/E - Swap Element		
+
+SPACEBAR - Use Element		"
+horizontal_alignment = 2

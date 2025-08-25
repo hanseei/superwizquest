@@ -35,7 +35,7 @@ func _on_wind_updated():
 	
 	if Gamecontroller.global_x_speed or Gamecontroller.global_z_speed != 0:
 		moving = true
-		print("moving")
+		#print("moving")
 		await get_tree().create_timer(Gamecontroller.wind_timer).timeout
 		moving = false
 		

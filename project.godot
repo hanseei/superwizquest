@@ -21,6 +21,7 @@ Gamecontroller="*res://Assets/Nodes/Scripts/gamecontroller.gd"
 
 [display]
 
+window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=3
 
 [global_group]
@@ -29,6 +30,7 @@ moveable=""
 stones=""
 earth-ignore=""
 mob=""
+UI=""
 
 [input]
 

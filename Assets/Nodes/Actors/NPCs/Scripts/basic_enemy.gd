@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 			elif normal.x > 0:
 				direction = 1
 				$AnimatedSprite2D.flip_h = true
-			print(normal)
+			#print(normal)
 
 func respawn():
 	print("Respawning enemy...")
@@ -54,16 +54,16 @@ func respawn():
 	
 func wet():
 	if soaking == false:
-		print("wet frog")
+		#print("wet frog")
 		soaking = true
 		var base_speed = movment_speed
-		print(movment_speed)
+		#print(movment_speed)
 		movment_speed = base_speed/2
 		$AnimatedSprite2D.speed_scale = 0.5
 		await get_tree().create_timer(5.0).timeout
 		movment_speed = base_speed
 		$AnimatedSprite2D.speed_scale = 1
-		print(movment_speed)
+		#print(movment_speed)
 		soaking = false
 	else:
 		pass
