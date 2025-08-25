@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwbjkioh2y6bw" path="res://Assets/Nodes/Actors/Interactables/torch.tscn" id="4_vwov1"]
 [ext_resource type="PackedScene" uid="uid://c2sylo50eqnp0" path="res://Assets/Nodes/Actors/Interactables/toggletest.tscn" id="5_57x3k"]
 [ext_resource type="PackedScene" uid="uid://blc2megwvlwmr" path="res://Assets/Nodes/Actors/Interactables/bucket.tscn" id="6_l42a0"]
-[ext_resource type="PackedScene" uid="uid://cbdaebxn04oax" path="res://Assets/Nodes/Actors/Interactables/Stone.tscn" id="7_5tspq"]
+[ext_resource type="PackedScene" uid="uid://cbdaebxn04oax" path="res://Assets/Nodes/Actors/Interactables/stone.tscn" id="7_5tspq"]
 [ext_resource type="PackedScene" uid="uid://b22d3disdyijl" path="res://Assets/Nodes/Actors/Interactables/door.tscn" id="8_hgiis"]
 [ext_resource type="PackedScene" uid="uid://bvc5bj0go1alw" path="res://Assets/Nodes/Actors/Interactables/movingPlatform.tscn" id="8_nj415"]
 [ext_resource type="PackedScene" uid="uid://bovilvnyemh8r" path="res://Assets/Nodes/Actors/Interactables/stone_bucket.tscn" id="10_qe2em"]
@@ -124,7 +124,7 @@ pathNodes = Array[Vector2]([Vector2(0, 0), Vector2(128, 0)])
 
 [node name="Door4" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("8_hgiis")]
 position = Vector2(448, -560)
-logic = 2
+logic = 5
 triggerObjectArray = [NodePath("../torch5"), NodePath("../StoneTrigger2")]
 
 [node name="torch5" parent="." instance=ExtResource("4_vwov1")]
@@ -133,7 +133,8 @@ position = Vector2(400, -491)
 [node name="Door5" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("8_hgiis")]
 z_index = -1
 position = Vector2(416, -752)
-triggerObjectArray = [NodePath("../torch5")]
+logic = 4
+triggerObjectArray = [NodePath("../torch5"), NodePath("../StoneTrigger2")]
 
 [node name="Stone2" parent="." instance=ExtResource("7_5tspq")]
 position = Vector2(241, -673)
