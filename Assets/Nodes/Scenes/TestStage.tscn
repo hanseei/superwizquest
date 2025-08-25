@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bovilvnyemh8r" path="res://Assets/Nodes/Actors/Interactables/stone_bucket.tscn" id="10_qe2em"]
 [ext_resource type="PackedScene" uid="uid://mmnaokb7xxf0" path="res://Assets/Nodes/Actors/Interactables/movablePlatform.tscn" id="11_qe2em"]
 [ext_resource type="PackedScene" uid="uid://dp1slpa606d67" path="res://Assets/Nodes/Actors/NPCs/basic_enemy.tscn" id="12_quyxq"]
-[ext_resource type="Script" uid="uid://c41eesjcycbuj" path="res://Assets/Nodes/Actors/Interactables/Scripts/platformPlant.gd" id="13_5wxih"]
+[ext_resource type="Script" path="res://Assets/Nodes/Actors/Interactables/Scripts/platformPlant.gd" id="13_5wxih"]
 [ext_resource type="TileSet" uid="uid://detiiabfx6qhj" path="res://Assets/TilesetResources/plantTileset.tres" id="14_0r6y0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwov1"]
@@ -27,7 +27,7 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_vap1g"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -395)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -384)
 }
 point_count = 2
 
@@ -53,7 +53,7 @@ position = Vector2(811, 236)
 position = Vector2(-222.611, 470.942)
 
 [node name="Player" parent="." instance=ExtResource("2_kuskl")]
-position = Vector2(277, -505)
+position = Vector2(1174, -528)
 collision_mask = 17
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
