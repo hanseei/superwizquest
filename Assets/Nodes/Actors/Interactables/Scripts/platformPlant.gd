@@ -1,7 +1,7 @@
 extends Interactable
 
 var lift: bool = false
-var plantSpeed: float = 1.6
+@export var platformSpeed: float = 1
 
 func _ready():
 	activateGroups = ["waters"]
@@ -12,9 +12,9 @@ func _ready():
 
 func _process(delta):
 	if (lift && $Path2D/PathFollow2D.progress_ratio < 1):
-		$Path2D/PathFollow2D.progress_ratio += delta * plantSpeed
+		$Path2D/PathFollow2D.progress_ratio += delta * platformSpeed
 	elif (!lift && $Path2D/PathFollow2D.progress_ratio > 0):
-		$Path2D/PathFollow2D.progress_ratio -= delta * plantSpeed
+		$Path2D/PathFollow2D.progress_ratio -= delta * platformSpeed
 		
 func procLift(active:bool):
 	lift = active

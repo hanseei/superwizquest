@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c7g3qysr2s8mq"]
+[gd_scene load_steps=21 format=4 uid="uid://c7g3qysr2s8mq"]
 
 [ext_resource type="TileSet" uid="uid://b0v4a7l6w4wsg" path="res://Assets/TilesetResources/groundTiles.tres" id="1_quyxq"]
 [ext_resource type="PackedScene" uid="uid://clnon8w5k6rob" path="res://Assets/Nodes/Actors/Player/player.tscn" id="2_kuskl"]
@@ -6,15 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://cwbjkioh2y6bw" path="res://Assets/Nodes/Actors/Interactables/torch.tscn" id="4_vwov1"]
 [ext_resource type="PackedScene" uid="uid://c2sylo50eqnp0" path="res://Assets/Nodes/Actors/Interactables/toggletest.tscn" id="5_57x3k"]
 [ext_resource type="PackedScene" uid="uid://blc2megwvlwmr" path="res://Assets/Nodes/Actors/Interactables/bucket.tscn" id="6_l42a0"]
-[ext_resource type="PackedScene" uid="uid://cbdaebxn04oax" path="res://Assets/Nodes/Actors/Interactables/stone.tscn" id="7_5tspq"]
+[ext_resource type="PackedScene" uid="uid://cbdaebxn04oax" path="res://Assets/Nodes/Actors/Interactables/Stone.tscn" id="7_5tspq"]
 [ext_resource type="PackedScene" uid="uid://b22d3disdyijl" path="res://Assets/Nodes/Actors/Interactables/door.tscn" id="8_hgiis"]
 [ext_resource type="PackedScene" uid="uid://bvc5bj0go1alw" path="res://Assets/Nodes/Actors/Interactables/movingPlatform.tscn" id="8_nj415"]
 [ext_resource type="PackedScene" uid="uid://bovilvnyemh8r" path="res://Assets/Nodes/Actors/Interactables/stone_bucket.tscn" id="10_qe2em"]
 [ext_resource type="PackedScene" uid="uid://mmnaokb7xxf0" path="res://Assets/Nodes/Actors/Interactables/movablePlatform.tscn" id="11_qe2em"]
 [ext_resource type="PackedScene" uid="uid://dp1slpa606d67" path="res://Assets/Nodes/Actors/NPCs/basic_enemy.tscn" id="12_quyxq"]
-[ext_resource type="Script" path="res://Assets/Nodes/Actors/Interactables/Scripts/platformPlant.gd" id="13_5wxih"]
+[ext_resource type="Script" uid="uid://c41eesjcycbuj" path="res://Assets/Nodes/Actors/Interactables/Scripts/platformPlant.gd" id="13_5wxih"]
 [ext_resource type="TileSet" uid="uid://detiiabfx6qhj" path="res://Assets/TilesetResources/plantTileset.tres" id="14_0r6y0"]
-[ext_resource type="PackedScene" uid="uid://cm8y1t7p55oqr" path="res://Assets/Nodes/Actors/Interactables/dialogueTrigger.tscn" id="15_0r6y0"]
+[ext_resource type="Script" uid="uid://bueopdgtn8tye" path="res://Assets/Nodes/Actors/Interactables/Scripts/dialogue_trigger.gd" id="15_0r6y0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwov1"]
 size = Vector2(7717, 43)
@@ -34,6 +34,8 @@ point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vap1g"]
 size = Vector2(34, 417)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbokp"]
 
 [node name="TestStage" type="Node2D"]
 
@@ -144,10 +146,11 @@ z_index = -1
 position = Vector2(464, -640)
 
 [node name="Plantform" type="Area2D" parent="."]
-position = Vector2(1311, -463)
+position = Vector2(1311, -464)
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("13_5wxih")
+platformSpeed = 0.6
 
 [node name="BasePlant" type="TileMapLayer" parent="Plantform"]
 texture_filter = 1
@@ -196,9 +199,23 @@ position = Vector2(2176, -912)
 logic = 2
 triggerObjectArray = [NodePath("../Bucket3"), NodePath("../torch3")]
 
-[node name="DialogueTrigger" parent="." instance=ExtResource("15_0r6y0")]
+[node name="DialogueTrigger" type="Area2D" parent="."]
 position = Vector2(188, -492)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("15_0r6y0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger"]
+shape = SubResource("RectangleShape2D_jbokp")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueTrigger"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+text = "THIS IS A TEST TEXT"
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
+[connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_body_entered"]
+[connection signal="body_exited" from="DialogueTrigger" to="DialogueTrigger" method="_on_body_exited"]
 
 [editable path="Door2"]
