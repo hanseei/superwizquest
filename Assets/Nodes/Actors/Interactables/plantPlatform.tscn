@@ -1,16 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://ccn3lqdhupwiq"]
 
 [ext_resource type="TileSet" uid="uid://detiiabfx6qhj" path="res://Assets/TilesetResources/plantTileset.tres" id="1_giwb0"]
-[ext_resource type="Script" uid="uid://c41eesjcycbuj" path="res://Assets/Nodes/Actors/Interactables/Scripts/platformPlant.gd" id="1_vap1g"]
+[ext_resource type="Script" path="res://Assets/Nodes/Actors/Interactables/Scripts/platformPlant.gd" id="1_vap1g"]
 
 [sub_resource type="Curve2D" id="Curve2D_vap1g"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -395)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -32)
 }
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vap1g"]
-size = Vector2(34, 417)
+size = Vector2(32, 65)
 
 [node name="Plantform" type="Area2D"]
 collision_layer = 0
