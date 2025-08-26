@@ -76,6 +76,9 @@ func _input(event):
 		#print("down released")
 		print(Gamecontroller.wind_timer)
 		
+	if event.is_action_pressed("R"):
+		print("R")
+		respawn()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("E"):
@@ -159,18 +162,20 @@ func cast_wind():
 		direction = Vector2.DOWN
 	
 	Gamecontroller.global_direction = direction
-	
-	if wind_active == false:
-		
-		wind_active = true
-		
-		$Wind.activate_wind()
-		
-		await get_tree().create_timer(Gamecontroller.wind_timer).timeout
-		
-		$Wind.deactivate_wind()
-		
-		wind_active = false
+	if is_on_floor(): 
+		if wind_active == false:
+			
+			wind_active = true
+			
+			$Wind.activate_wind()
+			
+			await get_tree().create_timer(Gamecontroller.wind_timer).timeout
+			
+			$Wind.deactivate_wind()
+			
+			wind_active = false
+	else:
+		pass
 	
 func _on_wind_updated():
 	wind_speed = Gamecontroller.global_x_speed

@@ -44,9 +44,6 @@ position_smoothing_enabled = true
 drag_left_margin = 0.5
 drag_right_margin = 0.53
 
-[node name="SpawnPointPlayer1" type="Node2D" parent="."]
-position = Vector2(0, 225)
-
 [node name="Killzone" type="Area2D" parent="."]
 position = Vector2(600, 800)
 collision_layer = 31
@@ -57,7 +54,7 @@ script = ExtResource("3_jrk3c")
 position = Vector2(800, -13)
 shape = SubResource("RectangleShape2D_ktxyu")
 
-[node name="torch1" parent="." instance=ExtResource("4_fnggt")]
+[node name="torch1" parent="." groups=["respawn"] instance=ExtResource("4_fnggt")]
 position = Vector2(298, 309)
 
 [node name="Door1" parent="." node_paths=PackedStringArray("triggerObjectArray") instance=ExtResource("5_qj1rm")]
@@ -120,5 +117,17 @@ tile_set = ExtResource("10_1ido8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plantform"]
 position = Vector2(16, -32.25)
 shape = SubResource("RectangleShape2D_vap1g")
+
+[node name="SpawnPointPlayer0" type="Node2D" parent="."]
+position = Vector2(-43, 296)
+
+[node name="SpawnPointPlayer1" type="Node2D" parent="."]
+position = Vector2(419, 312)
+
+[node name="SpawnPointPlayer2" type="Node2D" parent="."]
+position = Vector2(861, 315)
+
+[node name="SpawnPointPlayer3" type="Node2D" parent="."]
+position = Vector2(1656, 249)
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

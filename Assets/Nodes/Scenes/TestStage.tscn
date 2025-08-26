@@ -46,10 +46,10 @@ tile_map_data = PackedByteArray("AAD///7/AgACAAEAAAD/////AgADAAEAAAAAAP//AgABAAA
 tile_set = ExtResource("1_quyxq")
 use_kinematic_bodies = true
 
-[node name="SpawnPointPlayer1" type="Node2D" parent="."]
+[node name="SpawnPointPlayer0" type="Node2D" parent="."]
 position = Vector2(32, 337)
 
-[node name="SpawnPointPlayer2" type="Node2D" parent="."]
+[node name="SpawnPointPlayer1" type="Node2D" parent="."]
 position = Vector2(811, 236)
 
 [node name="SpawnPointFrog" type="Node2D" parent="."]
