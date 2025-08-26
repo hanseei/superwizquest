@@ -31,6 +31,7 @@ stones=""
 earth-ignore=""
 mob=""
 UI=""
+respawn=""
 
 [input]
 

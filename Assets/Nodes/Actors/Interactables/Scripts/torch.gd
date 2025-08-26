@@ -10,6 +10,8 @@ func _ready():
 #	If hit with a firebolt, check if already lit, if not, light and emit 'lit' signal.
 func lightTorch():
 		$AnimatedSprite2D.animation = "burning"
+		if is_in_group("respawn"):
+			Gamecontroller.respawn_counter + 1
 		
 #	If hit with water, check if already doused, if not, douse and emit 'doused' signal.
 func douseTorch():
