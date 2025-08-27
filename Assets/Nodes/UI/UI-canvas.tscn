@@ -37,33 +37,3 @@ text = "		A/D - Move Left/Right
 
 		W/S - Aim Up/Down (for Wind and Earth)
 "
-
-[node name="TutorialBox" type="Sprite2D" parent="."]
-z_index = 1
-texture_filter = 1
-position = Vector2(622, 574)
-texture = ExtResource("2_xgnp7")
-
-[node name="LeftText" type="RichTextLabel" parent="TutorialBox"]
-z_index = 2
-offset_left = -489.0
-offset_top = -41.0
-offset_right = 495.0
-offset_bottom = 41.0
-theme = ExtResource("3_n8rdc")
-text = "		A/D - Move Left/Right
-
-		W/S - Aim Up/Down (for Wind and Earth)
-"
-
-[node name="RightText" type="RichTextLabel" parent="TutorialBox"]
-z_index = 2
-offset_left = -495.0
-offset_top = -41.0
-offset_right = 489.0
-offset_bottom = 41.0
-theme = ExtResource("3_n8rdc")
-text = "Q/E - Swap Element		
-
-SPACEBAR - Use Element		"
-horizontal_alignment = 2
