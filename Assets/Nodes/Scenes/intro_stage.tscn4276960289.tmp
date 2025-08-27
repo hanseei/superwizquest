@@ -286,12 +286,6 @@ collision_mask = 2
 position = Vector2(436, 320)
 collision_layer = 2
 
-[node name="Respawn1" parent="." instance=ExtResource("13_vil1j")]
-position = Vector2(864, 320)
-
-[node name="Respawn2" parent="." instance=ExtResource("13_vil1j")]
-position = Vector2(1615, 256)
-
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 [connection signal="body_entered" from="DialogueTrigger0" to="DialogueTrigger0" method="_on_body_entered"]
 [connection signal="body_exited" from="DialogueTrigger0" to="DialogueTrigger0" method="_on_body_exited"]
