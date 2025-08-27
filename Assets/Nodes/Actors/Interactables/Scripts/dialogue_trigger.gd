@@ -6,5 +6,4 @@ func _on_body_entered(_body: Node):
 	#print("Scream!")
 
 func _on_body_exited(_body: Node):
-	await get_tree().create_timer(1).timeout
 	get_tree().call_group("UI","toggleTextboxVisible",false)
