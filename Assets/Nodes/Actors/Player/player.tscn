@@ -202,6 +202,7 @@ autoplay = "walk"
 [node name="Wind" parent="." instance=ExtResource("3_6x2t2")]
 
 [node name="Orb" type="Marker2D" parent="."]
+position = Vector2(-15, -2)
 gizmo_extents = 5.0
 
 [node name="Ui-canvas" parent="." instance=ExtResource("4_r4ruf")]

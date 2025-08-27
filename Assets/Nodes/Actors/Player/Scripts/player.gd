@@ -10,7 +10,7 @@ var jump_velocity = 0
 var wind_speed = 0
 var wind_active = false
 
-
+@onready var orb = get_node("Orb")
 
 const fire = preload("res://Assets/Nodes/Actors/Player/fire.tscn")
 const water = preload("res://Assets/Nodes/Actors/Player/water.tscn")
