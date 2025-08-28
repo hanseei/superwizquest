@@ -145,11 +145,27 @@ func summon_earth_block():
 		
 		if (!result.is_empty()):
 			spawn_pos = result.get("position")
-			spawn_pos.x = spawn_pos.x - (int(spawn_pos.x) % 32) - worldTileOffset
-			var block = earth.instantiate()
-			block.position = spawn_pos
-			get_tree().current_scene.add_child(block)
-			active_earth = block
+			var modifier: int = int(spawn_pos.x) % 32
+			if (modifier >= 16):
+				modifier -= 32
+			spawn_pos.x = spawn_pos.x - modifier - worldTileOffset
+			ray_goal = spawn_pos - Vector2(0,64)
+			if (offset.x == 0):
+				var spaceQuery = PhysicsRayQueryParameters2D.create(spawn_pos, ray_goal, 1)
+				var spaceResult = space_state.intersect_ray(spaceQuery)
+				if(spaceResult.is_empty()):
+					var block = earth.instantiate()
+					block.position = spawn_pos
+					get_tree().current_scene.add_child(block)
+					active_earth = block
+			else:
+				var block = earth.instantiate()
+				block.position = spawn_pos
+				get_tree().current_scene.add_child(block)
+				active_earth = block
+			
+
+
 		
 
 func cast_wind():
