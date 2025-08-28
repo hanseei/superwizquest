@@ -27,10 +27,10 @@ point_count = 2
 size = Vector2(64, 63.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbokp"]
-size = Vector2(32, 32)
+size = Vector2(64, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ido8"]
-size = Vector2(32, 32)
+size = Vector2(64, 64)
 
 [node name="IntroStage" type="Node2D"]
 
@@ -140,7 +140,7 @@ position = Vector2(847, 272)
 position = Vector2(1600, 208)
 
 [node name="DialogueTrigger0" type="Area2D" parent="."]
-position = Vector2(208, 320)
+position = Vector2(208, 304)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("11_1ido8")
@@ -155,7 +155,7 @@ offset_bottom = 40.0
 text = "A touch, I should use fire to lit it"
 
 [node name="DialogueTrigger1" type="Area2D" parent="."]
-position = Vector2(528, 320)
+position = Vector2(527, 304)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("11_1ido8")
@@ -170,7 +170,7 @@ offset_bottom = 40.0
 text = "This one is lit already. Maybe water will do something."
 
 [node name="DialogueTrigger2" type="Area2D" parent="."]
-position = Vector2(976, 320)
+position = Vector2(976, 304)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("11_1ido8")
@@ -185,7 +185,7 @@ offset_bottom = 40.0
 text = "A bucket?"
 
 [node name="DialogueTrigger3" type="Area2D" parent="."]
-position = Vector2(1168, 320)
+position = Vector2(1177, 304)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("11_1ido8")
@@ -206,6 +206,7 @@ collision_mask = 2
 script = ExtResource("11_1ido8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger4"]
+position = Vector2(-16, -15.5)
 shape = SubResource("RectangleShape2D_jbokp")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogueTrigger4"]
@@ -215,7 +216,7 @@ offset_bottom = 40.0
 text = "I should try casting earth below me to get up"
 
 [node name="DialogueTrigger5" type="Area2D" parent="."]
-position = Vector2(1744, 256)
+position = Vector2(1736, 240)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("11_1ido8")
@@ -230,7 +231,7 @@ offset_bottom = 40.0
 text = "That bolder up there looks like would roll if there was wind"
 
 [node name="DialogueTrigger6" type="Area2D" parent="."]
-position = Vector2(2000, 480)
+position = Vector2(1984, 464)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("11_1ido8")
@@ -245,7 +246,7 @@ offset_bottom = 40.0
 text = "A hole? maybe the wind can carry me out if it blows upward"
 
 [node name="DialogueTrigger7" type="Area2D" parent="."]
-position = Vector2(2000, 352)
+position = Vector2(1984, 369)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("11_1ido8")
@@ -266,7 +267,7 @@ collision_mask = 2
 script = ExtResource("11_1ido8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger8"]
-position = Vector2(-208, 0)
+position = Vector2(-208, -16)
 shape = SubResource("RectangleShape2D_jbokp")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogueTrigger8"]
