@@ -30,6 +30,7 @@ func _ready():
 	
 	$"Ui-canvas/Ui-icon/AnimatedSprite2D".animation = current_element
 	$AnimatedSprite2D.animation = current_element + "_walk"
+	
 
 
 func _physics_process(delta: float):
@@ -50,8 +51,10 @@ func _physics_process(delta: float):
 		
 	if facing_left:
 		$AnimatedSprite2D.flip_h = false
+		$Orb.position.x = -15
 	else:
 		$AnimatedSprite2D.flip_h = true
+		$Orb.position.x = 15
 	
 	move_and_slide()
 	
