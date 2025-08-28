@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhe32jvxc5xqf" path="res://Assets/Nodes/UI/UI-canvas.tscn" id="4_r4ruf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
-size = Vector2(26, 104)
+size = Vector2(28, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s0j4e"]
 atlas = ExtResource("2_x72o3")
