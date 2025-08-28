@@ -277,9 +277,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 text = "A/D - Move left/right			W/S - Aim up/down (for wind/earth
 
-Q/E - Cycle elements			Spacebar - Use element  	 R to respawn
-
-"
+Q/E - Cycle elements			Spacebar - Use element  		 R to respawn"
 
 [node name="Portal" parent="." instance=ExtResource("12_7rwy1")]
 position = Vector2(2080, 208)

@@ -127,7 +127,7 @@ func summon_earth_block():
 			active_earth.queue_free()
 
 		# Start from the Orb position
-		var spawn_pos = $Orb.global_position
+		var spawn_pos = position
 
 		# Offset forward based on facing direction
 		var offset := Vector2(128, -32)  # Adjust distance as needed
@@ -149,10 +149,11 @@ func summon_earth_block():
 		if (!result.is_empty()):
 			spawn_pos = result.get("position")
 			var modifier: int = int(spawn_pos.x) % 32
-			if (modifier >= 16):
-				modifier -= 32
+			#if (modifier >= 16):
+			#	modifier -= 32
 			spawn_pos.x = spawn_pos.x - modifier - worldTileOffset
 			ray_goal = spawn_pos - Vector2(0,64)
+			spawn_pos = abs(spawn_pos)
 			if (offset.x == 0):
 				var spaceQuery = PhysicsRayQueryParameters2D.create(spawn_pos, ray_goal, 1)
 				var spaceResult = space_state.intersect_ray(spaceQuery)
