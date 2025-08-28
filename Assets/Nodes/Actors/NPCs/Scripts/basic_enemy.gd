@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const Gravity = 10
 
-@onready var spawn_point = get_node("/root/TestStage/SpawnPointFrog")
+@onready var spawn_point = get_tree().get_current_scene().get_node("SpawnPointFrog")
 
 var movment_speed = 100
 var jump_velocity = 0
