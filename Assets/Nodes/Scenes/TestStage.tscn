@@ -52,7 +52,7 @@ position = Vector2(32, 337)
 [node name="SpawnPointPlayer1" type="Node2D" parent="."]
 position = Vector2(811, 236)
 
-[node name="SpawnPointFrog" type="Node2D" parent="."]
+[node name="SpawnPointFrog0" type="Node2D" parent="."]
 position = Vector2(-222.611, 470.942)
 
 [node name="Player" parent="." instance=ExtResource("2_kuskl")]
@@ -67,7 +67,7 @@ position_smoothing_enabled = true
 drag_left_margin = 0.5
 drag_right_margin = 0.53
 
-[node name="BasicEnemy" parent="." instance=ExtResource("12_quyxq")]
+[node name="BasicEnemy_0" parent="." instance=ExtResource("12_quyxq")]
 position = Vector2(-226, 589)
 collision_mask = 23
 

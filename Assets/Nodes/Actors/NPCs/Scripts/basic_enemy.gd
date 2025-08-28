@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 const Gravity = 10
 
-@onready var spawn_point = get_tree().get_current_scene().get_node("SpawnPointFrog")
+@onready var frog_number = self.name.get_slice("_", 1)
+@onready var spawn_point = get_tree().get_current_scene().get_node("SpawnPointFrog" + String(frog_number))
 
 var movment_speed = 100
 var jump_velocity = 0
@@ -12,6 +13,8 @@ var soaking = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(spawn_point)
+
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,7 +51,7 @@ func _process(delta: float) -> void:
 			#print(normal)
 
 func respawn():
-	print("Respawning enemy...")
+	print(spawn_point)
 	global_position = spawn_point.global_position
 	velocity = Vector2.ZERO
 	
