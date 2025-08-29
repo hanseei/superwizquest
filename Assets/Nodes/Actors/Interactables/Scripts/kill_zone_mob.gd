@@ -1,6 +1,5 @@
 extends Area2D
 
-var respawn_used = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,11 +10,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_body_entered(body: Node2D) -> void:
-	#print("player")
-	if respawn_used == false:
-		Gamecontroller.respawn_counter += 1
-		respawn_used = true
+	print("Kill zone triggered by:", body)
+	if body.has_method("respawn") and body.is_in_group("mob"):
+		print("Calling respawn() on:", body.name)
+		body.respawn()
 	else:
-		print(respawn_used)
+		print(body.name, "has no respawn() method")

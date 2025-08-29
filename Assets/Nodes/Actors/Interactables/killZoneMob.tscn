@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd1e45lqopc1a"]
+
+[ext_resource type="Script" uid="uid://5y5ik27pu0kg" path="res://Assets/Nodes/Actors/Interactables/Scripts/kill_zone_mob.gd" id="1_pon6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyim8"]
+size = Vector2(192, 191.75)
+
+[node name="KillZoneMob0" type="Area2D"]
+script = ExtResource("1_pon6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dyim8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

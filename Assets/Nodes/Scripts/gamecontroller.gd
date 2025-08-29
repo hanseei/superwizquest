@@ -23,4 +23,4 @@ func _process(delta: float) -> void:
 
 func update_spawn():
 	spawn_point = get_tree().get_current_scene().get_node("SpawnPointPlayer" + str(respawn_counter))
-	print(spawn_point)
+	#print(spawn_point)

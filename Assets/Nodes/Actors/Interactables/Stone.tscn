@@ -17,3 +17,5 @@ shape = SubResource("CircleShape2D_ovohm")
 texture_filter = 1
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("2_6nerm")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
