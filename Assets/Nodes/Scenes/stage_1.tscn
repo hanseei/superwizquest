@@ -3,13 +3,13 @@
 [ext_resource type="TileSet" uid="uid://b0v4a7l6w4wsg" path="res://Assets/TilesetResources/groundTiles.tres" id="1_wkxd6"]
 [ext_resource type="PackedScene" uid="uid://clnon8w5k6rob" path="res://Assets/Nodes/Actors/Player/player.tscn" id="2_mw5mx"]
 [ext_resource type="PackedScene" uid="uid://b22d3disdyijl" path="res://Assets/Nodes/Actors/Interactables/door.tscn" id="3_mw5mx"]
-[ext_resource type="PackedScene" uid="uid://cbdaebxn04oax" path="res://Assets/Nodes/Actors/Interactables/stone.tscn" id="4_30h0p"]
+[ext_resource type="PackedScene" uid="uid://cbdaebxn04oax" path="res://Assets/Nodes/Actors/Interactables/Stone.tscn" id="4_30h0p"]
 [ext_resource type="PackedScene" uid="uid://bovilvnyemh8r" path="res://Assets/Nodes/Actors/Interactables/stone_bucket.tscn" id="5_nx6fx"]
 [ext_resource type="Script" uid="uid://c3bmiiwme5v7i" path="res://Assets/Nodes/Actors/Interactables/Scripts/killzone.gd" id="6_iw2le"]
 [ext_resource type="PackedScene" uid="uid://cwbjkioh2y6bw" path="res://Assets/Nodes/Actors/Interactables/torch.tscn" id="6_nx6fx"]
 [ext_resource type="PackedScene" uid="uid://blc2megwvlwmr" path="res://Assets/Nodes/Actors/Interactables/bucket.tscn" id="7_iw2le"]
 [ext_resource type="PackedScene" uid="uid://dp1slpa606d67" path="res://Assets/Nodes/Actors/NPCs/basic_enemy.tscn" id="10_erqct"]
-[ext_resource type="PackedScene" uid="uid://c6w6sml6708vq" path="res://Assets/Nodes/Actors/Interactables/respawn.tscn" id="10_nvs2a"]
+[ext_resource type="PackedScene" path="res://Assets/Nodes/Actors/Interactables/respawn.tscn" id="10_nvs2a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sletn"]
 size = Vector2(319, 32)
@@ -29,7 +29,8 @@ position = Vector2(223, 317)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -64)
 zoom = Vector2(2, 2)
-limit_left = -1000
+limit_left = 128
+limit_right = 11264
 position_smoothing_enabled = true
 drag_left_margin = 0.5
 drag_right_margin = 0.53

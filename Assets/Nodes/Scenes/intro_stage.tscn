@@ -49,7 +49,8 @@ collision_mask = 17
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -64)
 zoom = Vector2(2, 2)
-limit_left = -1000
+limit_left = -416
+limit_right = 2112
 position_smoothing_enabled = true
 drag_left_margin = 0.5
 drag_right_margin = 0.53
