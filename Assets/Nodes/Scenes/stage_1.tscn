@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cwbjkioh2y6bw" path="res://Assets/Nodes/Actors/Interactables/torch.tscn" id="6_nx6fx"]
 [ext_resource type="PackedScene" uid="uid://blc2megwvlwmr" path="res://Assets/Nodes/Actors/Interactables/bucket.tscn" id="7_iw2le"]
 [ext_resource type="PackedScene" uid="uid://dp1slpa606d67" path="res://Assets/Nodes/Actors/NPCs/basic_enemy.tscn" id="10_erqct"]
-[ext_resource type="PackedScene" uid="uid://c6w6sml6708vq" path="res://Assets/Nodes/Actors/Interactables/respawn.tscn" id="10_nvs2a"]
-[ext_resource type="PackedScene" uid="uid://dd1e45lqopc1a" path="res://Assets/Nodes/Actors/Interactables/killZoneMob.tscn" id="11_erqct"]
+[ext_resource type="PackedScene" path="res://Assets/Nodes/Actors/Interactables/respawn.tscn" id="10_nvs2a"]
+[ext_resource type="PackedScene" path="res://Assets/Nodes/Actors/Interactables/killZoneMob.tscn" id="11_erqct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sletn"]
 size = Vector2(319, 32)
