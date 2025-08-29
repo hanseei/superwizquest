@@ -9,6 +9,8 @@ var global_direction = Vector2.ZERO
 var global_z_speed = 0
 var global_x_speed = 0
 var respawn_counter = 0
+var title_screen_text: String
+var levelLoadPath: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://le5u2wj0elcb"]
+
+[ext_resource type="Script" uid="uid://b31qpwxiirjd5" path="res://Assets/Nodes/Scenes/level_title.gd" id="1_2o43t"]
+
+[node name="LevelTitle" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2o43t")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_font_sizes/normal_font_size = 72
+horizontal_alignment = 1
+vertical_alignment = 1
