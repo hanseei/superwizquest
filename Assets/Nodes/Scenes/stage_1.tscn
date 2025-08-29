@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://0854asgbie2u"]
+[gd_scene load_steps=14 format=4 uid="uid://0854asgbie2u"]
 
 [ext_resource type="TileSet" uid="uid://b0v4a7l6w4wsg" path="res://Assets/TilesetResources/groundTiles.tres" id="1_wkxd6"]
 [ext_resource type="PackedScene" uid="uid://clnon8w5k6rob" path="res://Assets/Nodes/Actors/Player/player.tscn" id="2_mw5mx"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dp1slpa606d67" path="res://Assets/Nodes/Actors/NPCs/basic_enemy.tscn" id="10_erqct"]
 [ext_resource type="PackedScene" path="res://Assets/Nodes/Actors/Interactables/respawn.tscn" id="10_nvs2a"]
 [ext_resource type="PackedScene" path="res://Assets/Nodes/Actors/Interactables/killZoneMob.tscn" id="11_erqct"]
+[ext_resource type="AudioStream" uid="uid://cwhcr2fcngxq6" path="res://Assets/Audio/Sounds/Plopp!.mp3" id="12_72m7b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sletn"]
 size = Vector2(319, 32)
@@ -172,6 +173,13 @@ scale = Vector2(1, 2)
 [node name="KillZoneMob1" parent="." instance=ExtResource("11_erqct")]
 position = Vector2(9569, -770)
 scale = Vector2(1, 2)
+
+[node name="AmbientSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_72m7b")
+volume_db = -27.667
+pitch_scale = 1.83
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 [connection signal="body_entered" from="Killzone2" to="Killzone2" method="_on_body_entered"]
