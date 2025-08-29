@@ -5,12 +5,12 @@
 
 [sub_resource type="Curve2D" id="Curve2D_vap1g"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -160)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -420)
 }
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vap1g"]
-size = Vector2(32, 189)
+size = Vector2(34, 428)
 
 [node name="Plantform0" type="Area2D"]
 collision_layer = 0
@@ -36,5 +36,5 @@ tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 2, 0, 2, 0, 0, 80)
 tile_set = ExtResource("1_giwb0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, -63)
+position = Vector2(16, -61.5)
 shape = SubResource("RectangleShape2D_vap1g")
