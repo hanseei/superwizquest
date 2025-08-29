@@ -80,7 +80,7 @@ func _input(event):
 		print(Gamecontroller.wind_timer)
 		
 	if event.is_action_pressed("R"):
-		print("R")
+		#print("R")
 		respawn()
 
 func _unhandled_input(event: InputEvent) -> void:
