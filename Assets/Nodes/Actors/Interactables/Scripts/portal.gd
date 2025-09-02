@@ -8,11 +8,6 @@ func _ready() -> void:
 	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_body_entered(body: Node2D) -> void:
 	Gamecontroller.levelLoadPath = "res://Assets/Nodes/Scenes/" + nextStageName + ".tscn"
 	Gamecontroller.title_screen_text = stageText
