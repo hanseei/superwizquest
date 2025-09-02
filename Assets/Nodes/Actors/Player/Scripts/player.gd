@@ -6,8 +6,6 @@ const Gravity = 10
 
 @export var worldTileOffset = 0
 
-var jump_velocity = 0
-var wind_speed = 0
 var wind_active = false
 
 @onready var orb = get_node("Orb")
@@ -36,15 +34,15 @@ func _ready():
 func _physics_process(delta: float):
 	
 	var direction = Input.get_axis("move_left", "move_right")
-	velocity.x = direction * speed + wind_speed
+	velocity.x = direction * speed + Gamecontroller.global_x_speed
 	
 	if !is_on_floor():
 		
 		velocity.y = 1200 * Gravity * delta
 
 	
-	if jump_velocity != 0:
-		velocity.y = jump_velocity * delta
+	if Gamecontroller.global_z_speed != 0:
+		velocity.y = Gamecontroller.global_z_speed * delta
 	
 	if direction != 0:
 		facing_left = direction < 0
@@ -168,10 +166,6 @@ func summon_earth_block():
 				block.position = spawn_pos
 				get_tree().current_scene.add_child(block)
 				active_earth = block
-			
-
-
-		
 
 func cast_wind():
 	
@@ -197,11 +191,6 @@ func cast_wind():
 			wind_active = false
 	else:
 		pass
-	
-func _on_wind_updated():
-	wind_speed = Gamecontroller.global_x_speed
-	jump_velocity = Gamecontroller.global_z_speed
-	
 
 func shoot_element():
 	match current_element:
