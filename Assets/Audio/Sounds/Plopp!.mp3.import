@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Plopp!.mp3-d68ef5cc64d44ed788a25a0e4729c4a8.m
 [params]
 
 loop=true
-loop_offset=2.0
+loop_offset=0.0
 bpm=0.0
 beat_count=0
 bar_beats=4
