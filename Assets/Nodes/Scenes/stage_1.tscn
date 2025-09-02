@@ -3,14 +3,14 @@
 [ext_resource type="TileSet" uid="uid://b0v4a7l6w4wsg" path="res://Assets/TilesetResources/groundTiles.tres" id="1_wkxd6"]
 [ext_resource type="PackedScene" uid="uid://clnon8w5k6rob" path="res://Assets/Nodes/Actors/Player/player.tscn" id="2_mw5mx"]
 [ext_resource type="PackedScene" uid="uid://b22d3disdyijl" path="res://Assets/Nodes/Actors/Interactables/door.tscn" id="3_mw5mx"]
-[ext_resource type="PackedScene" uid="uid://cbdaebxn04oax" path="res://Assets/Nodes/Actors/Interactables/Stone.tscn" id="4_30h0p"]
+[ext_resource type="PackedScene" uid="uid://cbdaebxn04oax" path="res://Assets/Nodes/Actors/Interactables/stone.tscn" id="4_30h0p"]
 [ext_resource type="PackedScene" uid="uid://bovilvnyemh8r" path="res://Assets/Nodes/Actors/Interactables/stone_bucket.tscn" id="5_nx6fx"]
 [ext_resource type="Script" uid="uid://c3bmiiwme5v7i" path="res://Assets/Nodes/Actors/Interactables/Scripts/killzone.gd" id="6_iw2le"]
 [ext_resource type="PackedScene" uid="uid://cwbjkioh2y6bw" path="res://Assets/Nodes/Actors/Interactables/torch.tscn" id="6_nx6fx"]
 [ext_resource type="PackedScene" uid="uid://blc2megwvlwmr" path="res://Assets/Nodes/Actors/Interactables/bucket.tscn" id="7_iw2le"]
 [ext_resource type="PackedScene" uid="uid://dp1slpa606d67" path="res://Assets/Nodes/Actors/NPCs/basic_enemy.tscn" id="10_erqct"]
-[ext_resource type="PackedScene" path="res://Assets/Nodes/Actors/Interactables/respawn.tscn" id="10_nvs2a"]
-[ext_resource type="PackedScene" path="res://Assets/Nodes/Actors/Interactables/killZoneMob.tscn" id="11_erqct"]
+[ext_resource type="PackedScene" uid="uid://c6w6sml6708vq" path="res://Assets/Nodes/Actors/Interactables/respawn.tscn" id="10_nvs2a"]
+[ext_resource type="PackedScene" uid="uid://dd1e45lqopc1a" path="res://Assets/Nodes/Actors/Interactables/killZoneMob.tscn" id="11_erqct"]
 [ext_resource type="Script" uid="uid://c41eesjcycbuj" path="res://Assets/Nodes/Actors/Interactables/Scripts/platformPlant.gd" id="12_40h1g"]
 [ext_resource type="Script" uid="uid://b3winoxxkk7n3" path="res://Assets/Nodes/Actors/Interactables/Scripts/portal.gd" id="12_wjbfs"]
 [ext_resource type="TileSet" uid="uid://detiiabfx6qhj" path="res://Assets/TilesetResources/plantTileset.tres" id="13_wjbfs"]
@@ -113,16 +113,16 @@ position = Vector2(4145, 160)
 triggerObjectArray = [NodePath("../StoneBucket0")]
 
 [node name="Respawn0" parent="." instance=ExtResource("10_nvs2a")]
-position = Vector2(3216, 271)
+position = Vector2(3218, 240)
 
 [node name="Respawn1" parent="." instance=ExtResource("10_nvs2a")]
-position = Vector2(3664, 239)
+position = Vector2(3664, 208)
 
 [node name="Respawn2" parent="." instance=ExtResource("10_nvs2a")]
-position = Vector2(4432, 79)
+position = Vector2(4435, 48)
 
 [node name="Respawn3" parent="." instance=ExtResource("10_nvs2a")]
-position = Vector2(6011, -656)
+position = Vector2(6033, -688)
 
 [node name="SpawnPointPlayer4" type="Node2D" parent="."]
 position = Vector2(6005, -689)
@@ -182,7 +182,7 @@ position = Vector2(8039, -451)
 position = Vector2(8001, -506)
 
 [node name="KillZoneMob0" parent="." instance=ExtResource("11_erqct")]
-position = Vector2(5953, -800)
+position = Vector2(5952, -799)
 scale = Vector2(1, 2)
 
 [node name="KillZoneMob1" parent="." instance=ExtResource("11_erqct")]

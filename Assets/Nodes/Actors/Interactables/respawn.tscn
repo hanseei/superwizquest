@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bujc51kgc1ogk" path="res://Assets/Nodes/Actors/Interactables/Scripts/respawn.gd" id="1_mp666"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw3s4"]
-size = Vector2(32, 32)
+size = Vector2(32, 96)
 
 [node name="Respawn0" type="Area2D"]
 collision_layer = 0
