@@ -43,7 +43,7 @@ tile_set = ExtResource("1_wkxd6")
 use_kinematic_bodies = true
 
 [node name="Player" parent="." instance=ExtResource("2_mw5mx")]
-position = Vector2(9950, -642)
+position = Vector2(144, 318)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -64)
