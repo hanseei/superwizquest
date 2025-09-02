@@ -183,10 +183,17 @@ func cast_wind():
 			wind_active = true
 			
 			$Wind.activate_wind()
+			$"Ui-canvas/WindOverlay".visible = true
+			match direction:
+				Vector2.UP: $"Ui-canvas/WindOverlay".rotation_degrees = -90
+				Vector2.RIGHT: $"Ui-canvas/WindOverlay".rotation_degrees = 0
+				Vector2.DOWN: $"Ui-canvas/WindOverlay".rotation_degrees = 90
+				Vector2.LEFT: $"Ui-canvas/WindOverlay".rotation_degrees = 180
 			
 			await get_tree().create_timer(Gamecontroller.wind_timer).timeout
 			
 			$Wind.deactivate_wind()
+			$"Ui-canvas/WindOverlay".visible = false
 			
 			wind_active = false
 	else:
