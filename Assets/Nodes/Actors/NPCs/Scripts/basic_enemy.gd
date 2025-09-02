@@ -6,8 +6,7 @@ const Gravity = 10
 @onready var spawn_point = get_tree().get_current_scene().get_node("SpawnPointFrog" + String(frog_number))
 
 var movment_speed = 100
-var jump_velocity = 0
-var wind_speed = 0
+
 var direction = -1
 var soaking = false
 

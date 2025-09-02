@@ -6,12 +6,12 @@ var respawn_used = false
 func _ready() -> void:
 	pass # Replace with function body.
 
-
+@warning_ignore("unused_parameter")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-
+@warning_ignore("unused_parameter")
 func _on_body_entered(body: Node2D) -> void:
 	#print("player")
 	if respawn_used == false:
