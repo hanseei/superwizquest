@@ -68,7 +68,9 @@ func _physics_process(delta: float):
 	
 
 func _input(event):
-	
+	if event.is_action_pressed("escape"):
+		get_tree().change_scene_to_file("res://Assets/Nodes/Scenes/menu.tscn")
+
 	if event.is_action_pressed("space"):
 		shoot_element()
 		
