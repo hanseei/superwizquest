@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://dhe32jvxc5xqf"]
+[gd_scene load_steps=9 format=4 uid="uid://dhe32jvxc5xqf"]
 
 [ext_resource type="Script" uid="uid://cl2bsjv547ot3" path="res://Assets/Nodes/UI/ui_main.gd" id="1_jaob1"]
 [ext_resource type="PackedScene" uid="uid://bcsow3affqx1j" path="res://Assets/Nodes/UI/UI-icon.tscn" id="1_qegfr"]
+[ext_resource type="AudioStream" uid="uid://brty2qlknjwb0" path="res://Assets/Audio/Sounds/clickingsound.mp3" id="2_bhlbb"]
 [ext_resource type="Texture2D" uid="uid://bapnfmij5ivq3" path="res://Assets/Images/UI-elements/textbox.png" id="2_xgnp7"]
 [ext_resource type="Theme" uid="uid://b1th5ki246wl2" path="res://Assets/TilesetResources/UI-Text.tres" id="3_n8rdc"]
 [ext_resource type="Texture2D" uid="uid://cmesbe82p3dpe" path="res://Assets/Images/Spritesheets/Windsheet.png" id="5_n8rdc"]
@@ -35,6 +36,9 @@ sources/0 = SubResource("TileSetAtlasSource_bhlbb")
 
 [node name="Ui-canvas" type="CanvasLayer" groups=["UI"]]
 script = ExtResource("1_jaob1")
+
+[node name="Switchclick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bhlbb")
 
 [node name="Ui-icon" parent="." instance=ExtResource("1_qegfr")]
 anchors_preset = 2

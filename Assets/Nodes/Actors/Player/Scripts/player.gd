@@ -6,7 +6,9 @@ const Gravity = 10
 
 @export var worldTileOffset = 0
 
+
 var wind_active = false
+var wind_fadeout = false
 
 @onready var orb = get_node("Orb")
 
@@ -32,6 +34,9 @@ func _ready():
 
 
 func _physics_process(delta: float):
+	
+	if wind_fadeout:
+		$Wind/windsound.volume_db -= delta * 10
 	
 	var direction = Input.get_axis("move_left", "move_right")
 	velocity.x = direction * speed + Gamecontroller.global_x_speed
@@ -86,11 +91,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		current_element_index = (current_element_index + 1) % elements.size()
 		current_element = elements[current_element_index]
 		$"Ui-canvas/Ui-icon/AnimatedSprite2D".animation = current_element
+		$"Ui-canvas/Switchclick".pitch_scale = 0.75
+		$"Ui-canvas/Switchclick".play(0)
 		#print("Switched to:", current_element)
 	if event.is_action_pressed("Q"):
 		current_element_index = (current_element_index - 1) % elements.size()
 		current_element = elements[current_element_index]
 		$"Ui-canvas/Ui-icon/AnimatedSprite2D".animation = current_element
+		$"Ui-canvas/Switchclick".pitch_scale = 1
+		$"Ui-canvas/Switchclick".play(0)
 		#print("Switched to:", current_element)
 	$AnimatedSprite2D.animation = current_element + "_walk"
 
@@ -183,6 +192,8 @@ func cast_wind():
 			wind_active = true
 			
 			$Wind.activate_wind()
+			wind_fadeout = false
+			$Wind/windsound.play()
 			$"Ui-canvas/WindOverlay".visible = true
 			match direction:
 				Vector2.UP: $"Ui-canvas/WindOverlay".rotation_degrees = -90
@@ -190,8 +201,9 @@ func cast_wind():
 				Vector2.DOWN: $"Ui-canvas/WindOverlay".rotation_degrees = 90
 				Vector2.LEFT: $"Ui-canvas/WindOverlay".rotation_degrees = 180
 			
-			await get_tree().create_timer(Gamecontroller.wind_timer).timeout
-			
+			await get_tree().create_timer(Gamecontroller.wind_timer - 1).timeout
+			wind_fadeout = true
+			await get_tree().create_timer(1).timeout
 			$Wind.deactivate_wind()
 			$"Ui-canvas/WindOverlay".visible = false
 			
