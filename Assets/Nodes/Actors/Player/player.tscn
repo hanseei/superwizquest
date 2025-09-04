@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://clnon8w5k6rob"]
+[gd_scene load_steps=30 format=3 uid="uid://clnon8w5k6rob"]
 
 [ext_resource type="Script" uid="uid://cr0v4yndcrjtr" path="res://Assets/Nodes/Actors/Player/Scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://l34rjwen4gir" path="res://Assets/Images/Spritesheets/wizard.png" id="2_6x2t2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dia7x2akacw3y" path="res://Assets/Nodes/Actors/Player/wind.tscn" id="3_6x2t2"]
 [ext_resource type="PackedScene" uid="uid://dhe32jvxc5xqf" path="res://Assets/Nodes/UI/UI-canvas.tscn" id="4_r4ruf"]
 [ext_resource type="AudioStream" uid="uid://cxkdlvtwemn50" path="res://Assets/Audio/Sounds/mountain-wind-371074.mp3" id="5_jj3hr"]
+[ext_resource type="AudioStream" uid="uid://bl0ki808tvhr8" path="res://Assets/Audio/Sounds/footstep.mp3" id="7_s0j4e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
 size = Vector2(28, 104)
@@ -210,3 +211,7 @@ position = Vector2(-15, -2)
 gizmo_extents = 5.0
 
 [node name="Ui-canvas" parent="." instance=ExtResource("4_r4ruf")]
+
+[node name="footstepsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_s0j4e")
+volume_db = -17.333

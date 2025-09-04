@@ -40,6 +40,11 @@ func _physics_process(delta: float):
 	
 	var direction = Input.get_axis("move_left", "move_right")
 	velocity.x = direction * speed + Gamecontroller.global_x_speed
+	if velocity.x != 0 && !$footstepsound.playing && is_on_floor():
+		$footstepsound.pitch_scale = 1.25 - (randf() / 2)
+		$footstepsound.play()
+	elif(velocity.x == 0 || !is_on_floor()):
+		$footstepsound.stop()
 	
 	if !is_on_floor():
 		
