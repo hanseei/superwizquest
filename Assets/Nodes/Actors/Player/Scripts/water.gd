@@ -8,6 +8,7 @@ func _ready():
 	$VisibleOnScreenEnabler2D.screen_exited.connect(_on_VisibilityNotifier2D_screen_exited)
 	if (velocity.x <= 0):
 		$AnimatedSprite2D.flip_h = true
+	$Waterplop.pitch_scale = 1.15 - (randf()/2)
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta

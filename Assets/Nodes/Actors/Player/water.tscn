@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b43fr5tpkqw0n"]
+[gd_scene load_steps=11 format=3 uid="uid://b43fr5tpkqw0n"]
 
 [ext_resource type="Script" uid="uid://bjs5epuods5p7" path="res://Assets/Nodes/Actors/Player/Scripts/water.gd" id="1_7wcun"]
 [ext_resource type="Texture2D" uid="uid://cw2y1jybdfmyo" path="res://Assets/Images/Spritesheets/waterSpritesheet.png" id="2_m6nuc"]
+[ext_resource type="AudioStream" uid="uid://4n85sv3i6sdr" path="res://Assets/Audio/Sounds/waterplop.mp3" id="3_3isjq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3isjq"]
 radius = 8.02773
@@ -67,5 +68,9 @@ texture_filter = 1
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_400dl")
 speed_scale = 0.0
+
+[node name="Waterplop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3isjq")
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
