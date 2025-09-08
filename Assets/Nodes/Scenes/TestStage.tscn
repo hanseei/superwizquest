@@ -240,6 +240,9 @@ triggerObjectArray = [NodePath("../StoneBucket2"), NodePath("../StoneBucket0")]
 [node name="Door9" parent="." instance=ExtResource("8_hgiis")]
 position = Vector2(-448, 528)
 
+[node name="Stone3" parent="." instance=ExtResource("7_5tspq")]
+position = Vector2(287, 606)
+
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 [connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="DialogueTrigger" to="DialogueTrigger" method="_on_body_exited"]
