@@ -47,6 +47,7 @@ focus_neighbor_top = NodePath("../Quit")
 text = "Start"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Options"
 
