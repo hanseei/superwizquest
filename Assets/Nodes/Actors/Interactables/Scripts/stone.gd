@@ -3,6 +3,7 @@ extends Physicsable
 func _ready() -> void:
 	pass
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	$StoneAnim.global_rotation = 0
 	var stoneRot = global_rotation - int(global_rotation)

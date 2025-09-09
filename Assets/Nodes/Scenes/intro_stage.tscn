@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwbjkioh2y6bw" path="res://Assets/Nodes/Actors/Interactables/torch.tscn" id="4_fnggt"]
 [ext_resource type="PackedScene" uid="uid://b22d3disdyijl" path="res://Assets/Nodes/Actors/Interactables/door.tscn" id="5_qj1rm"]
 [ext_resource type="PackedScene" uid="uid://blc2megwvlwmr" path="res://Assets/Nodes/Actors/Interactables/bucket.tscn" id="6_i6xnk"]
-[ext_resource type="PackedScene" uid="uid://cbdaebxn04oax" path="res://Assets/Nodes/Actors/Interactables/stone.tscn" id="7_tq22p"]
+[ext_resource type="PackedScene" uid="uid://bl67tthcf5adm" path="res://Assets/Nodes/Actors/Interactables/stone.tscn" id="7_tq22p"]
 [ext_resource type="PackedScene" uid="uid://bovilvnyemh8r" path="res://Assets/Nodes/Actors/Interactables/stone_bucket.tscn" id="8_qcrf4"]
 [ext_resource type="Script" uid="uid://c41eesjcycbuj" path="res://Assets/Nodes/Actors/Interactables/Scripts/platformPlant.gd" id="9_qcrf4"]
 [ext_resource type="TileSet" uid="uid://detiiabfx6qhj" path="res://Assets/TilesetResources/plantTileset.tres" id="10_1ido8"]

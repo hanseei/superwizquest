@@ -6,6 +6,8 @@
 size = Vector2(192, 191.75)
 
 [node name="KillZoneMob0" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_pon6y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
