@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Superwizquest"
+config/name="Orb"
 run/main_scene="uid://beg7g01hwfcqc"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://b6krniisf7p8h"
